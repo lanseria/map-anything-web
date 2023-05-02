@@ -1,5 +1,6 @@
-import path from 'path'
-import { ConfigEnv, UserConfig, loadEnv } from 'vite'
+import path from 'node:path'
+import type { ConfigEnv, UserConfig } from 'vite'
+import { loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
@@ -14,17 +15,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     server: {
       host: env.VITE_HOST,
       port: +env.VITE_PORT,
-      // proxy: {
-      //   '^\/api\/': {
-      //     target: env.VITE_PROXY_URL,
-      //     changeOrigin: true,
-      //     xfwd: true,
-      //     rewrite: (path) => {
-      //       const replacePath = path.replace(/^\/api/, '')
-      //       return replacePath
-      //     },
-      //   },
-      // },
     },
     resolve: {
       alias: {
@@ -39,10 +29,10 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       vue({
         reactivityTransform: true,
       }),
-  
+
       // https://github.com/hannoeru/vite-plugin-pages
       Pages(),
-  
+
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({
         resolvers: [ArcoResolver()],
@@ -58,12 +48,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         ],
         vueTemplate: true,
       }),
-  
+
       // https://github.com/antfu/vite-plugin-components
       Components({
         dts: true,
       }),
-  
+
       // https://github.com/antfu/unocss
       // see unocss.config.ts for config
       Unocss(),

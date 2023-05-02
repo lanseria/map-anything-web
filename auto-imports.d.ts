@@ -12,6 +12,10 @@ declare global {
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
   const EffectScope: typeof import('vue')['EffectScope']
+  const INIT_POINT: typeof import('./src/composables/constant')['INIT_POINT']
+  const INIT_ZOOM: typeof import('./src/composables/constant')['INIT_ZOOM']
+  const MAPBOX_STYLE_LIST: typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']
+  const MAPBOX_TOKEN: typeof import('./src/composables/constant')['MAPBOX_TOKEN']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
   const computed: typeof import('vue')['computed']
@@ -40,7 +44,11 @@ declare global {
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
+  const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
+  const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const h: typeof import('vue')['h']
+  const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
   const isDark: typeof import('./src/composables/dark')['isDark']
@@ -50,6 +58,7 @@ declare global {
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
+  const mapLoad: typeof import('./src/composables/map/mapLoad')['mapLoad']
   const markRaw: typeof import('vue')['markRaw']
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
@@ -92,6 +101,9 @@ declare global {
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const storeContentSideCollapseActiveKey: typeof import('./src/composables/store')['storeContentSideCollapseActiveKey']
+  const storeContentSideCollapsed: typeof import('./src/composables/store')['storeContentSideCollapsed']
+  const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
   const templateRef: typeof import('@vueuse/core')['templateRef']
@@ -305,6 +317,10 @@ declare module 'vue' {
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly INIT_POINT: UnwrapRef<typeof import('./src/composables/constant')['INIT_POINT']>
+    readonly INIT_ZOOM: UnwrapRef<typeof import('./src/composables/constant')['INIT_ZOOM']>
+    readonly MAPBOX_STYLE_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']>
+    readonly MAPBOX_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_TOKEN']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -333,7 +349,11 @@ declare module 'vue' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
+    readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
+    readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
@@ -343,6 +363,7 @@ declare module 'vue' {
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
+    readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
@@ -385,6 +406,9 @@ declare module 'vue' {
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly storeContentSideCollapseActiveKey: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapseActiveKey']>
+    readonly storeContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapsed']>
+    readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>

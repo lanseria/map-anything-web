@@ -1,29 +1,42 @@
 <script setup lang="ts">
-const value = ref('')
+const size = ref(0.3)
+const min = ref('200px')
+watchEffect(() => {
+  if (!storeContentSideCollapsed.value) {
+    min.value = '0px'
+    size.value = 0
+  }
+  else {
+    min.value = '200px'
+    size.value = 0.3
+  }
+})
+function resizeHandler() {
+  window.map.resize()
+}
+const debounceMapboxResize = useDebounceFn(resizeHandler, 100)
+function onMoving() {
+  debounceMapboxResize()
+}
 </script>
 
 <template>
-  <div>
-    <a-typography :style="{ marginTop: '-40px' }">
-      <a-typography-title>
-        Arco Uno Basic Template
-      </a-typography-title>
-      <ParentSelect v-model="value" placeholder="请选择" />
-      <a-space>
-        <a-button type="primary">
-          Primary
-        </a-button>
-        <a-button>Secondary</a-button>
-        <a-button type="dashed">
-          Dashed
-        </a-button>
-        <a-button type="outline">
-          Outline
-        </a-button>
-        <a-button type="text">
-          Text
-        </a-button>
-      </a-space>
-    </a-typography>
+  <div class="w-screen h-screen flex flex-col">
+    <TabPanelMenu class="shrink-0" />
+    <a-split
+      v-model:size="size"
+      class="flex-1 w-full h-full"
+      style="height: calc(100vh - 168.5px);"
+      :min="min"
+      max="400px"
+      @moving="onMoving"
+    >
+      <template #first>
+        <ContentSide v-if="storeContentSideCollapsed" />
+      </template>
+      <template #second>
+        <ContentMap />
+      </template>
+    </a-split>
   </div>
 </template>

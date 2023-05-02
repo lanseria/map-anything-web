@@ -9,9 +9,13 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ContentMap: typeof import('./src/components/Content/ContentMap.vue')['default']
+    ContentSide: typeof import('./src/components/Content/ContentSide.vue')['default']
     Hello: typeof import('./src/components/Hello.vue')['default']
     ParentSelect: typeof import('./src/components/ParentSelect.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TabPanelIconBtn: typeof import('./src/components/TabPanel/TabPanelIconBtn.vue')['default']
+    TabPanelMenu: typeof import('./src/components/TabPanel/TabPanelMenu.vue')['default']
   }
 }

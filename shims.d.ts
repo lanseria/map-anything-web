@@ -3,3 +3,7 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+interface Window {
+  map: mapboxgl.Map;
+  draw: MapboxDraw;
+}
