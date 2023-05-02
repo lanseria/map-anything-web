@@ -11,11 +11,40 @@ declare global {
   const $ref: typeof import('vue/macros')['$ref']
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
+  const CIRCLE_PREFIX: typeof import('./src/composables/constant')['CIRCLE_PREFIX']
+  const DOT_IMAGE_NAME: typeof import('./src/composables/constant')['DOT_IMAGE_NAME']
   const EffectScope: typeof import('vue')['EffectScope']
+  const FILL_PREFIX: typeof import('./src/composables/constant')['FILL_PREFIX']
+  const INIT_LINE_COLOR: typeof import('./src/composables/constant')['INIT_LINE_COLOR']
+  const INIT_LINE_OPACITY: typeof import('./src/composables/constant')['INIT_LINE_OPACITY']
   const INIT_POINT: typeof import('./src/composables/constant')['INIT_POINT']
+  const INIT_POINT_COLOR: typeof import('./src/composables/constant')['INIT_POINT_COLOR']
+  const INIT_POINT_SYMBOL_SIZE: typeof import('./src/composables/constant')['INIT_POINT_SYMBOL_SIZE']
+  const INIT_POINT_TEXT_FILL_COLOR: typeof import('./src/composables/constant')['INIT_POINT_TEXT_FILL_COLOR']
+  const INIT_POINT_TEXT_HALO_COLOR: typeof import('./src/composables/constant')['INIT_POINT_TEXT_HALO_COLOR']
+  const INIT_POINT_TEXT_SIZE: typeof import('./src/composables/constant')['INIT_POINT_TEXT_SIZE']
+  const INIT_POLYGON_FILL_COLOR: typeof import('./src/composables/constant')['INIT_POLYGON_FILL_COLOR']
+  const INIT_POLYGON_LINE_COLOR: typeof import('./src/composables/constant')['INIT_POLYGON_LINE_COLOR']
+  const INIT_POLYGON_OPACITY: typeof import('./src/composables/constant')['INIT_POLYGON_OPACITY']
+  const INIT_RASTER_OPACITY: typeof import('./src/composables/constant')['INIT_RASTER_OPACITY']
   const INIT_ZOOM: typeof import('./src/composables/constant')['INIT_ZOOM']
+  const LINE_PREFIX: typeof import('./src/composables/constant')['LINE_PREFIX']
+  const LineStringTypeEnum: typeof import('./src/composables/constant')['LineStringTypeEnum']
+  const LineStringTypeEnumMap: typeof import('./src/composables/constant')['LineStringTypeEnumMap']
   const MAPBOX_STYLE_LIST: typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']
   const MAPBOX_TOKEN: typeof import('./src/composables/constant')['MAPBOX_TOKEN']
+  const MAP_DRAW_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']
+  const MAP_DRAW_LAYER_POLYGON_FILL: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']
+  const MAP_DRAW_LAYER_POLYGON_OUTLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']
+  const MAP_DRAW_LAYER_STRINGLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']
+  const MAP_DRAW_SOURCE: typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']
+  const PointTypeEnum: typeof import('./src/composables/constant')['PointTypeEnum']
+  const PointTypeEnumMap: typeof import('./src/composables/constant')['PointTypeEnumMap']
+  const PolygonTypeEnum: typeof import('./src/composables/constant')['PolygonTypeEnum']
+  const PolygonTypeEnumMap: typeof import('./src/composables/constant')['PolygonTypeEnumMap']
+  const SETTING_SYMBOL_MAXSIZE: typeof import('./src/composables/constant')['SETTING_SYMBOL_MAXSIZE']
+  const SETTING_TEXT_MAXSIZE: typeof import('./src/composables/constant')['SETTING_TEXT_MAXSIZE']
+  const SYMBOL_PREFIX: typeof import('./src/composables/constant')['SYMBOL_PREFIX']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
   const computed: typeof import('vue')['computed']
@@ -44,11 +73,18 @@ declare global {
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const globalCurrentProperties: typeof import('./src/composables/global')['globalCurrentProperties']
+  const globalDrawEdit: typeof import('./src/composables/global')['globalDrawEdit']
+  const globalDrawMode: typeof import('./src/composables/global')['globalDrawMode']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
+  const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const h: typeof import('vue')['h']
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
+  const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
+  const handleMapExitDrawEdit: typeof import('./src/composables/global')['handleMapExitDrawEdit']
+  const handleSelectGlobalDrawMode: typeof import('./src/composables/global')['handleSelectGlobalDrawMode']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
   const isDark: typeof import('./src/composables/dark')['isDark']
@@ -60,6 +96,7 @@ declare global {
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const mapLoad: typeof import('./src/composables/map/mapLoad')['mapLoad']
   const markRaw: typeof import('vue')['markRaw']
+  const nanoid: typeof import('./src/composables/global')['nanoid']
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
   const onBeforeMount: typeof import('vue')['onBeforeMount']
@@ -103,6 +140,8 @@ declare global {
   const shallowRef: typeof import('vue')['shallowRef']
   const storeContentSideCollapseActiveKey: typeof import('./src/composables/store')['storeContentSideCollapseActiveKey']
   const storeContentSideCollapsed: typeof import('./src/composables/store')['storeContentSideCollapsed']
+  const storeMapDrawFeatures: typeof import('./src/composables/store')['storeMapDrawFeatures']
+  const storeMapDrawLayerCheckedKeys: typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
@@ -120,6 +159,7 @@ declare global {
   const tryOnMounted: typeof import('@vueuse/core')['tryOnMounted']
   const tryOnScopeDispose: typeof import('@vueuse/core')['tryOnScopeDispose']
   const tryOnUnmounted: typeof import('@vueuse/core')['tryOnUnmounted']
+  const turf: typeof import('./src/composables/global')['turf']
   const unref: typeof import('vue')['unref']
   const unrefElement: typeof import('@vueuse/core')['unrefElement']
   const until: typeof import('@vueuse/core')['until']
@@ -316,11 +356,40 @@ declare module 'vue' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
+    readonly CIRCLE_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['CIRCLE_PREFIX']>
+    readonly DOT_IMAGE_NAME: UnwrapRef<typeof import('./src/composables/constant')['DOT_IMAGE_NAME']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly FILL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['FILL_PREFIX']>
+    readonly INIT_LINE_COLOR: UnwrapRef<typeof import('./src/composables/constant')['INIT_LINE_COLOR']>
+    readonly INIT_LINE_OPACITY: UnwrapRef<typeof import('./src/composables/constant')['INIT_LINE_OPACITY']>
     readonly INIT_POINT: UnwrapRef<typeof import('./src/composables/constant')['INIT_POINT']>
+    readonly INIT_POINT_COLOR: UnwrapRef<typeof import('./src/composables/constant')['INIT_POINT_COLOR']>
+    readonly INIT_POINT_SYMBOL_SIZE: UnwrapRef<typeof import('./src/composables/constant')['INIT_POINT_SYMBOL_SIZE']>
+    readonly INIT_POINT_TEXT_FILL_COLOR: UnwrapRef<typeof import('./src/composables/constant')['INIT_POINT_TEXT_FILL_COLOR']>
+    readonly INIT_POINT_TEXT_HALO_COLOR: UnwrapRef<typeof import('./src/composables/constant')['INIT_POINT_TEXT_HALO_COLOR']>
+    readonly INIT_POINT_TEXT_SIZE: UnwrapRef<typeof import('./src/composables/constant')['INIT_POINT_TEXT_SIZE']>
+    readonly INIT_POLYGON_FILL_COLOR: UnwrapRef<typeof import('./src/composables/constant')['INIT_POLYGON_FILL_COLOR']>
+    readonly INIT_POLYGON_LINE_COLOR: UnwrapRef<typeof import('./src/composables/constant')['INIT_POLYGON_LINE_COLOR']>
+    readonly INIT_POLYGON_OPACITY: UnwrapRef<typeof import('./src/composables/constant')['INIT_POLYGON_OPACITY']>
+    readonly INIT_RASTER_OPACITY: UnwrapRef<typeof import('./src/composables/constant')['INIT_RASTER_OPACITY']>
     readonly INIT_ZOOM: UnwrapRef<typeof import('./src/composables/constant')['INIT_ZOOM']>
+    readonly LINE_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['LINE_PREFIX']>
+    readonly LineStringTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['LineStringTypeEnum']>
+    readonly LineStringTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['LineStringTypeEnumMap']>
     readonly MAPBOX_STYLE_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']>
     readonly MAPBOX_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_TOKEN']>
+    readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
+    readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
+    readonly MAP_DRAW_LAYER_POLYGON_OUTLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']>
+    readonly MAP_DRAW_LAYER_STRINGLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_STRINGLINE']>
+    readonly MAP_DRAW_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_SOURCE']>
+    readonly PointTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnum']>
+    readonly PointTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PointTypeEnumMap']>
+    readonly PolygonTypeEnum: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnum']>
+    readonly PolygonTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['PolygonTypeEnumMap']>
+    readonly SETTING_SYMBOL_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_SYMBOL_MAXSIZE']>
+    readonly SETTING_TEXT_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_TEXT_MAXSIZE']>
+    readonly SYMBOL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['SYMBOL_PREFIX']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -349,11 +418,18 @@ declare module 'vue' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
+    readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
+    readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
+    readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
+    readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
+    readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
+    readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
@@ -365,6 +441,7 @@ declare module 'vue' {
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly nanoid: UnwrapRef<typeof import('./src/composables/global')['nanoid']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
@@ -408,6 +485,8 @@ declare module 'vue' {
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
     readonly storeContentSideCollapseActiveKey: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapseActiveKey']>
     readonly storeContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapsed']>
+    readonly storeMapDrawFeatures: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawFeatures']>
+    readonly storeMapDrawLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
@@ -425,6 +504,7 @@ declare module 'vue' {
     readonly tryOnMounted: UnwrapRef<typeof import('@vueuse/core')['tryOnMounted']>
     readonly tryOnScopeDispose: UnwrapRef<typeof import('@vueuse/core')['tryOnScopeDispose']>
     readonly tryOnUnmounted: UnwrapRef<typeof import('@vueuse/core')['tryOnUnmounted']>
+    readonly turf: UnwrapRef<typeof import('./src/composables/global')['turf']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>

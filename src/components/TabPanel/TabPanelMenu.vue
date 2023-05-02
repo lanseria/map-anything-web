@@ -7,6 +7,12 @@ function onTabCollapse() {
     window.map.resize()
   })
 }
+watchEffect(() => {
+  if (activeKey.value === '2')
+    handleMapDrawEdit()
+  else
+    handleMapExitDrawEdit()
+})
 </script>
 
 <template>
@@ -77,35 +83,35 @@ function onTabCollapse() {
       </div>
     </a-tab-pane>
     <a-tab-pane key="2" title="绘制/编辑">
-      <!-- <div v-show="!tabCollapse" class="mb-5 mx-5 flex">
-        <TabPanelIconBtn class="mr-5" @click="handleSelectDraw('draw_point')">
+      <div v-show="!tabCollapse" class="mb-5 mx-5 flex">
+        <TabPanelIconBtn class="mr-5" @click="handleSelectGlobalDrawMode('draw_point')">
           <template #icon>
-            <div class="text-size-40px i-gis-point" :class="{ 'bg-red': drawMode === 'draw_point' }" />
+            <div class="text-size-40px i-gis-point" :class="{ 'bg-red': globalDrawMode === 'draw_point' }" />
           </template>
           点
         </TabPanelIconBtn>
 
-        <TabPanelIconBtn class="mr-5" @click="handleSelectDraw('draw_line_string')">
+        <TabPanelIconBtn class="mr-5" @click="handleSelectGlobalDrawMode('draw_line_string')">
           <template #icon>
-            <div class="text-size-40px i-gis-polyline-pt" :class="{ 'bg-red': drawMode === 'draw_line_string' }" />
+            <div class="text-size-40px i-gis-polyline-pt" :class="{ 'bg-red': globalDrawMode === 'draw_line_string' }" />
           </template>
           线
         </TabPanelIconBtn>
 
-        <TabPanelIconBtn class="mr-5" @click="handleSelectDraw('draw_polygon')">
+        <TabPanelIconBtn class="mr-5" @click="handleSelectGlobalDrawMode('draw_polygon')">
           <template #icon>
-            <div class="text-size-40px i-gis-polygon-pt" :class="{ 'bg-red': drawMode === 'draw_polygon' }" />
+            <div class="text-size-40px i-gis-polygon-pt" :class="{ 'bg-red': globalDrawMode === 'draw_polygon' }" />
           </template>
           面
         </TabPanelIconBtn>
 
-        <TabPanelIconBtn class="mr-5" @click="handleSelectDraw('draw_radius')">
+        <TabPanelIconBtn class="mr-5" @click="handleSelectGlobalDrawMode('draw_radius')">
           <template #icon>
-            <div class="text-size-40px i-gis-circle-o" :class="{ 'bg-red': drawMode === 'draw_radius' }" />
+            <div class="text-size-40px i-gis-circle-o" :class="{ 'bg-red': globalDrawMode === 'draw_radius' }" />
           </template>
           圆
         </TabPanelIconBtn>
-      </div> -->
+      </div>
     </a-tab-pane>
     <a-tab-pane key="3" title="帮助">
       <div v-show="!tabCollapse" class="mb-5 mx-5 flex">

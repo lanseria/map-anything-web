@@ -9,6 +9,7 @@ import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css'
 import DrawLineString from '~/composables/draw/linestring'
 import drawStyles from '~/composables/draw/styles'
 import RadiusMode from '~/composables/draw/RadiusMode'
+import { pushMapDrawFeatures } from '~/composables/draw/mode'
 
 mapboxgl.accessToken = MAPBOX_TOKEN
 let map: mapboxgl.Map | null = null
@@ -57,7 +58,7 @@ onMounted(() => {
     // reloadImportLayer()
   })
   map.on('draw.create', (e) => {
-    // pushFeatures(e.features[0])
+    pushMapDrawFeatures(e.features[0])
     draw.deleteAll()
   })
 })
