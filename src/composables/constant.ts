@@ -2,6 +2,8 @@ export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN
 
 console.warn('renderer constant: ', MAPBOX_TOKEN)
 
+export const DEFAULT_ICONFONT_CN_URL = '//at.alicdn.com/t/c/font_3827842_wufq09bulno.js'
+
 export const MAPBOX_STYLE_LIST = [
   {
     name: '街道地图',

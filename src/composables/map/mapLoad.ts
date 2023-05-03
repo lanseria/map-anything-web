@@ -1,9 +1,11 @@
+import { reloadMapDrawLayer } from '../draw/mode'
+
 export function mapLoad() {
   // loadImg('DrawLineArrow', drawLineArrow, true)
   // loadImg('DrawLineArrow', '/draw-line-arrow.png', true)
   // mapLoadImages()
 
-  // reloadSourceLayer()
+  reloadMapDrawLayer()
   // for (const key in mapCityTypeColorMap.value) {
   //   const color = mapCityTypeColorMap.value[key]
   //   const colorRgb = hexToRgb(color)

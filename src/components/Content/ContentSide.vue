@@ -16,7 +16,7 @@ import { storeContentSideCollapseActiveKey } from '~/composables'
     </a-collapse-item>
 
     <a-collapse-item key="3" header="标注图层">
-      <!-- <CollapseDrawLayer /> -->
+      <CollapseDrawLayer />
     </a-collapse-item>
 
     <a-collapse-item key="4" header="导入图层">

@@ -39,4 +39,5 @@ function onMoving() {
       </template>
     </a-split>
   </div>
+  <ModalMapDraw />
 </template>

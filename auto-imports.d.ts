@@ -12,6 +12,7 @@ declare global {
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
   const CIRCLE_PREFIX: typeof import('./src/composables/constant')['CIRCLE_PREFIX']
+  const DEFAULT_ICONFONT_CN_URL: typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']
   const DOT_IMAGE_NAME: typeof import('./src/composables/constant')['DOT_IMAGE_NAME']
   const EffectScope: typeof import('vue')['EffectScope']
   const FILL_PREFIX: typeof import('./src/composables/constant')['FILL_PREFIX']
@@ -357,6 +358,7 @@ declare module 'vue' {
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
     readonly CIRCLE_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['CIRCLE_PREFIX']>
+    readonly DEFAULT_ICONFONT_CN_URL: UnwrapRef<typeof import('./src/composables/constant')['DEFAULT_ICONFONT_CN_URL']>
     readonly DOT_IMAGE_NAME: UnwrapRef<typeof import('./src/composables/constant')['DOT_IMAGE_NAME']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly FILL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['FILL_PREFIX']>
