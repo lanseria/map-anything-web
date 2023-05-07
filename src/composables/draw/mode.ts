@@ -110,11 +110,14 @@ const popup = new mapboxgl.Popup({
 function handleFeatureHover(e: any) {
   const map = window.map
   const description = e.features[0].properties.description
-  const coordinates = e.features[0].geometry.coordinates.slice()
+  const { geometry } = e.features[0]
   if (description) {
     //
-    map.getCanvas().style.cursor = 'pointer'
-    popup.setLngLat(coordinates).setHTML(description).addTo(map)
+    if (geometry.type === 'Point') {
+      const coordinates = geometry.coordinates.slice()
+      map.getCanvas().style.cursor = 'pointer'
+      popup.setLngLat(coordinates).setHTML(description).addTo(map)
+    }
   }
 }
 

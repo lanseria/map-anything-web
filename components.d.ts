@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CollapseDrawLayer: typeof import('./src/components/Collapse/CollapseDrawLayer.vue')['default']
+    CollapseStyleLayer: typeof import('./src/components/Collapse/CollapseStyleLayer.vue')['default']
     ContentMap: typeof import('./src/components/Content/ContentMap.vue')['default']
     ContentSide: typeof import('./src/components/Content/ContentSide.vue')['default']
     FormMapDraw: typeof import('./src/components/Form/FormMapDraw.vue')['default']

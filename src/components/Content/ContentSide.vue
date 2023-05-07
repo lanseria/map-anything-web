@@ -5,7 +5,7 @@ import { storeContentSideCollapseActiveKey } from '~/composables'
 <template>
   <a-collapse v-model:active-key="storeContentSideCollapseActiveKey" :bordered="false">
     <a-collapse-item key="0" header="地图样式选择">
-      <!-- <CollapseStyleLayer /> -->
+      <CollapseStyleLayer />
     </a-collapse-item>
     <a-collapse-item key="1" header="筛选器">
       <!-- <CollapseSearchForm /> -->
