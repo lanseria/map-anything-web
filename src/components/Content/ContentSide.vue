@@ -8,7 +8,7 @@ import { storeContentSideCollapseActiveKey } from '~/composables'
       <CollapseStyleLayer />
     </a-collapse-item>
     <a-collapse-item key="1" header="筛选器">
-      <!-- <CollapseSearchForm /> -->
+      <CollapeFilter></CollapeFilter>
     </a-collapse-item>
 
     <a-collapse-item key="2" header="数据列表">
