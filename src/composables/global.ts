@@ -48,3 +48,9 @@ watchEffect(() => {
 export const globalCurrentProperties = ref(null) as Ref<any>
 
 export const globalMapDrawFeatureModalVisible = ref(false)
+
+export const { data: globalAllSessions } = useFetch<FormatSession[]>('/xuyun-data/json/allSessions.json').get().json<FormatSession[]>()
+
+export const globalSessionId = ref(-1)
+
+export const globalVideoId = ref(-1)

@@ -74,13 +74,16 @@ declare global {
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const globalAllSessions: typeof import('./src/composables/global')['globalAllSessions']
   const globalCurrentProperties: typeof import('./src/composables/global')['globalCurrentProperties']
   const globalDrawEdit: typeof import('./src/composables/global')['globalDrawEdit']
   const globalDrawMode: typeof import('./src/composables/global')['globalDrawMode']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
+  const globalSessionId: typeof import('./src/composables/global')['globalSessionId']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
+  const globalVideoId: typeof import('./src/composables/global')['globalVideoId']
   const h: typeof import('vue')['h']
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
@@ -420,13 +423,16 @@ declare module 'vue' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly globalAllSessions: UnwrapRef<typeof import('./src/composables/global')['globalAllSessions']>
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
     readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
     readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
+    readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
+    readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>

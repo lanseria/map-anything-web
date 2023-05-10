@@ -12,7 +12,7 @@ import { storeContentSideCollapseActiveKey } from '~/composables'
     </a-collapse-item>
 
     <a-collapse-item key="2" header="数据列表">
-      <!-- <CollapseDataList /> -->
+      <CollapeData />
     </a-collapse-item>
 
     <a-collapse-item key="3" header="标注图层">

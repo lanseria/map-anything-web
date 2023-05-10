@@ -9,15 +9,15 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    CollapeData: typeof import('./src/components/Collapse/CollapeData.vue')['default']
     CollapeFilter: typeof import('./src/components/Collapse/CollapeFilter.vue')['default']
+    CollaperData: typeof import('./src/components/Collapse/CollaperData.vue')['default']
     CollapseDrawLayer: typeof import('./src/components/Collapse/CollapseDrawLayer.vue')['default']
     CollapseStyleLayer: typeof import('./src/components/Collapse/CollapseStyleLayer.vue')['default']
     ContentMap: typeof import('./src/components/Content/ContentMap.vue')['default']
     ContentSide: typeof import('./src/components/Content/ContentSide.vue')['default']
     FormMapDraw: typeof import('./src/components/Form/FormMapDraw.vue')['default']
-    Hello: typeof import('./src/components/Hello.vue')['default']
     ModalMapDraw: typeof import('./src/components/Modal/ModalMapDraw.vue')['default']
-    ParentSelect: typeof import('./src/components/ParentSelect.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TabPanelIconBtn: typeof import('./src/components/TabPanel/TabPanelIconBtn.vue')['default']
