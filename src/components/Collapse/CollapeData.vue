@@ -11,15 +11,16 @@ const handleClick = (item: FormatVideo) => {
 }
 </script>
 <template>
-  <a-scrollbar style="height:400px;overflow: auto;">
+  <a-scrollbar style="height:200px;overflow: auto;">
     <div class="grid grid-cols-2 gap-20px">
-      <div v-for="item in videoList" :key="item.aid" class="flex  rounded-lg shadow-lg"
-        :class="globalVideoId !== item.aid ? 'bg-white cursor-pointer' : 'bg-green-500 text-white'"
+      <div v-for="item in videoList" :key="item.aid" class="flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
+        :class="globalVideoId !== item.aid ? 'bg-[var(--color-neutral-2)] cursor-pointer' : 'bg-blue-500 text-white'"
         @click="handleClick(item)">
-        <div class="ml-10px flex flex-col">
+        <div class="flex flex-col">
           <div>{{ item.title }}</div>
           <div title="查看数"><icon-eye />{{ item.play }}</div>
-          <div title="评论数"><icon-star />{{ item.comment }}</div>
+          <div title="评论数"><icon-message />{{ item.comment }}</div>
+          <div title="发布时间"><icon-clock-circle />{{ item.createdStr }}</div>
         </div>
       </div>
     </div>
