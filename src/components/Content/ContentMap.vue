@@ -3,8 +3,10 @@ import type { LngLatLike } from 'mapbox-gl'
 import mapboxgl from 'mapbox-gl'
 import MapboxDraw from '@mapbox/mapbox-gl-draw'
 import MapboxLanguage from '@mapbox/mapbox-gl-language'
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css'
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import DrawLineString from '~/composables/draw/linestring'
 import drawStyles from '~/composables/draw/styles'
@@ -43,6 +45,18 @@ onMounted(() => {
   window.draw = draw
 
   map.addControl(new mapboxgl.NavigationControl())
+  map.addControl(
+    new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      countries: 'CN',
+      types: 'poi,district,place',
+      language: 'zh-hans',
+      // @ts-ignore
+      worldview: 'cn'
+    })
+    , 'top-left'
+  );
   map.addControl(draw)
   map.on('load', () => {
     setTimeout(() => {
@@ -66,11 +80,10 @@ onMounted(() => {
 
 <template>
   <div class="h-full w-full relative">
-    <div
-      ref="mapContainer"
-      class="h-full w-full relative"
-    />
-    <div v-if="globalIsMapboxLoad" class="text-[var(--color-neutral-10)] absolute left-0 bottom-1/2 px-1 py-4 bg-white dark:bg-black cursor-pointer  z-10" @click="handleContentSideCollapsed()">
+    <div ref="mapContainer" class="h-full w-full relative" />
+    <div v-if="globalIsMapboxLoad"
+      class="text-[var(--color-neutral-10)] absolute left-0 bottom-1/2 px-1 py-4 bg-white dark:bg-black cursor-pointer  z-10"
+      @click="handleContentSideCollapsed()">
       <div v-if="!storeContentSideCollapsed" class="i-carbon:caret-right" />
       <div v-else class="i-carbon:caret-left" />
     </div>
