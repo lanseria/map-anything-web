@@ -1,14 +1,14 @@
 <script setup lang="ts">
-const size = ref(0.3)
+const size = ref('400px')
 const min = ref('200px')
 watchEffect(() => {
   if (!storeContentSideCollapsed.value) {
     min.value = '0px'
-    size.value = 0
+    size.value = '0px'
   }
   else {
     min.value = '200px'
-    size.value = 0.3
+    size.value = '400px'
   }
 })
 function resizeHandler() {
