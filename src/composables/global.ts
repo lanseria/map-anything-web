@@ -49,8 +49,15 @@ export const globalCurrentProperties = ref(null) as Ref<any>
 
 export const globalMapDrawFeatureModalVisible = ref(false)
 
-export const { data: globalAllSessions } = useFetch<FormatSession[]>('/xuyun-data/json/allSessions.json').get().json<FormatSession[]>()
+export const globalMapDataValue = ref('/xuyun-data')
+export const globalMapDataValueUrl = computed(() => {
+  return `${globalMapDataValue.value}/json/allSessions.json`
+})
+export const { data: globalAllSessions, execute: globalMapDataExecute } = useFetch<FormatSession[]>(globalMapDataValueUrl).get().json<FormatSession[]>()
 
+watch(() => globalMapDataValueUrl.value, () => {
+  globalMapDataExecute()
+})
 export const globalSessionId = ref(-1)
 
 export const globalVideoId = ref(-1)

@@ -11,6 +11,11 @@ function onTabCollapse() {
   })
 }
 function handleSendIssueUseEmail() {
+  const mapData = MAP_DATA_LIST.find(item => item.value === globalMapDataValue.value)
+  if (!mapData) {
+    Message.warning('未选择数据,无法发送邮件')
+    return
+  }
   if (globalAllSessions.value) {
     if (!globalSessionId.value) {
       Message.warning('未选择路线,无法发送邮件')
@@ -28,7 +33,7 @@ function handleSendIssueUseEmail() {
     const sessionName = globalAllSessions.value[sessionIdx].title
     const videoIdx = globalAllSessions.value[sessionIdx].videoList.findIndex(item => item.aid === globalVideoId.value)
     const videoName = globalAllSessions.value[sessionIdx].videoList[videoIdx].title
-    const title = `[徐云][${sessionName}]${videoName}-${dayjs().format('YYYY-MM-DD HH:mm:ss')}`
+    const title = `[${dayjs().format('YYYY-MM-DD HH:mm:ss')}][${sessionName}]${videoName}`
     useFetch('https://s8zygv.laf.run/sendEmail', {
       headers: {
         'Content-Type': 'application/json',
@@ -38,6 +43,7 @@ function handleSendIssueUseEmail() {
         subject: title,
         milestone: sessionName,
         text: storeMapDrawFeatures.value,
+        issue: mapData.issue,
       }),
     }).post().json()
   }

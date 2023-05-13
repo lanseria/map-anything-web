@@ -34,6 +34,7 @@ declare global {
   const LineStringTypeEnumMap: typeof import('./src/composables/constant')['LineStringTypeEnumMap']
   const MAPBOX_STYLE_LIST: typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']
   const MAPBOX_TOKEN: typeof import('./src/composables/constant')['MAPBOX_TOKEN']
+  const MAP_DATA_LIST: typeof import('./src/composables/constant')['MAP_DATA_LIST']
   const MAP_DRAW_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']
   const MAP_DRAW_LAYER_POLYGON_FILL: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']
   const MAP_DRAW_LAYER_POLYGON_OUTLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']
@@ -80,6 +81,7 @@ declare global {
   const globalDrawMode: typeof import('./src/composables/global')['globalDrawMode']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
+  const globalMapDataValue: typeof import('./src/composables/global')['globalMapDataValue']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
   const globalSessionId: typeof import('./src/composables/global')['globalSessionId']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
@@ -383,6 +385,7 @@ declare module 'vue' {
     readonly LineStringTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['LineStringTypeEnumMap']>
     readonly MAPBOX_STYLE_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']>
     readonly MAPBOX_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_TOKEN']>
+    readonly MAP_DATA_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LIST']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
     readonly MAP_DRAW_LAYER_POLYGON_OUTLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']>
@@ -429,6 +432,7 @@ declare module 'vue' {
     readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
+    readonly globalMapDataValue: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValue']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
     readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>

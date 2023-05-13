@@ -7,7 +7,7 @@ export const DEFAULT_ICONFONT_CN_URL = '//at.alicdn.com/t/c/font_3827842_wufq09b
 export const MAPBOX_STYLE_LIST = [
   {
     name: '街道地图',
-    style: 'mapbox://styles/lanseria/cld5ur36v000301lngmbtq0qh',
+    style: 'mapbox://styles/lanseria/clhluh3n100kq01r87c9deet0',
   },
   {
     name: '简洁白底',
@@ -78,3 +78,16 @@ export const MAP_DRAW_LAYER_POLYGON_FILL = 'MAP_DRAW_LAYER_POLYGON_FILL'
 export const MAP_DRAW_LAYER_POLYGON_OUTLINE = 'MAP_DRAW_LAYER_POLYGON_OUTLINE'
 export const MAP_DRAW_LAYER_STRINGLINE = 'MAP_DRAW_LAYER_STRINGLINE'
 export const MAP_DRAW_LAYER_POINT = 'MAP_DRAW_LAYER_POINT'
+
+export const MAP_DATA_LIST = [
+  {
+    label: '徐云流浪中国',
+    value: '/xuyun-data',
+    issue: 'incoming+data1355712-xuyun-data-114561-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
+  },
+  {
+    label: '十三要和拳头',
+    value: '/shisanyaoshitou-data',
+    issue: 'incoming+data1355712-shisanyaoshitou-data-116130-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
+  },
+]
