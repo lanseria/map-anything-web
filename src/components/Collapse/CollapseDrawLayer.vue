@@ -5,19 +5,19 @@ import { storeMapDrawLayerCheckedKeys } from '~/composables'
 
 const IconFont = Icon.addFromIconFontCn({ src: DEFAULT_ICONFONT_CN_URL })
 const treeData = computed<any>(() => {
-  const filterPoints = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'Point').map(item => ({
+  const filterPoints = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'Point' && item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value).map(item => ({
     title: item.properties!.description || item.properties!.id,
     key: item.properties!.id,
     icon: () => h(IconFont, { type: 'icon-dian' }),
     leaf: true,
   }))
-  const filterLineStrings = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'LineString').map(item => ({
+  const filterLineStrings = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'LineString' && item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value).map(item => ({
     title: item.properties!.description || item.properties!.id,
     key: item.properties!.id,
     icon: () => h(IconFont, { type: 'icon-xian' }),
     leaf: true,
   }))
-  const filterPolygons = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'Polygon').map(item => ({
+  const filterPolygons = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'Polygon' && item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value).map(item => ({
     title: item.properties!.description || item.properties!.id,
     key: item.properties!.id,
     icon: () => h(IconFont, { type: 'icon-mian' }),

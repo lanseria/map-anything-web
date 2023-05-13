@@ -89,6 +89,8 @@ export function pushMapDrawFeatures(feature: MyFeature) {
     ...globalCurrentProperties.value,
     center: centerPoint.geometry.coordinates,
     id: nanoid(),
+    sessionId: globalSessionId.value,
+    videoId: globalVideoId.value,
   }
   feature.properties = {
     ...globalCurrentProperties.value,
