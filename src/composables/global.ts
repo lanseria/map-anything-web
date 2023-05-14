@@ -10,12 +10,16 @@ export const globalMapCenter = ref(INIT_POINT)
 
 export const globalDrawMode = ref('')
 export const globalDrawEdit = ref(false)
+export const globalDrawMove = ref(false)
 export function handleSelectGlobalDrawMode(val: string) {
   globalDrawMode.value = val
 }
 
 export function handleMapDrawEdit() {
   globalDrawEdit.value = true
+}
+export function handleMapDrawMove(val: boolean) {
+  globalDrawMove.value = val
 }
 export function handleMapExitDrawEdit() {
   globalDrawEdit.value = false

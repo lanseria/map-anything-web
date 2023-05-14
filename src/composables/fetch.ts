@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 
 export function handleSendIssueUseEmail() {
   const mapData = MAP_DATA_LIST.find(item => item.value === globalMapDataValue.value)
+  const filterMapDrawFeatures = storeMapDrawFeatures.value.filter(item => item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value)
   if (!mapData) {
     Message.warning('未选择数据,无法发送邮件')
     return
@@ -16,8 +17,8 @@ export function handleSendIssueUseEmail() {
       Message.warning('未选择视频,无法发送邮件')
       return
     }
-    if (storeMapDrawFeatures.value.length === 0) {
-      Message.warning('未画图,无法发送邮件')
+    if (filterMapDrawFeatures.length === 0) {
+      Message.warning('未画图(当前路线),无法发送邮件')
       return
     }
     Modal.info({
@@ -37,7 +38,7 @@ export function handleSendIssueUseEmail() {
           body: JSON.stringify({
             subject: title,
             milestone: sessionName,
-            text: storeMapDrawFeatures.value,
+            text: filterMapDrawFeatures,
             issue: mapData.issue,
           }),
         }).post().json()

@@ -79,6 +79,7 @@ declare global {
   const globalCurrentProperties: typeof import('./src/composables/global')['globalCurrentProperties']
   const globalDrawEdit: typeof import('./src/composables/global')['globalDrawEdit']
   const globalDrawMode: typeof import('./src/composables/global')['globalDrawMode']
+  const globalDrawMove: typeof import('./src/composables/global')['globalDrawMove']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
   const globalMapDataExecute: typeof import('./src/composables/global')['globalMapDataExecute']
@@ -91,6 +92,7 @@ declare global {
   const h: typeof import('vue')['h']
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
+  const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
   const handleMapExitDrawEdit: typeof import('./src/composables/global')['handleMapExitDrawEdit']
   const handleSelectGlobalDrawMode: typeof import('./src/composables/global')['handleSelectGlobalDrawMode']
   const handleSendIssueUseEmail: typeof import('./src/composables/fetch')['handleSendIssueUseEmail']
@@ -433,6 +435,7 @@ declare module 'vue' {
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
     readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
     readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
+    readonly globalDrawMove: UnwrapRef<typeof import('./src/composables/global')['globalDrawMove']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/global')['globalMapDataExecute']>
@@ -445,6 +448,7 @@ declare module 'vue' {
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
+    readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
     readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
     readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>

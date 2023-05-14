@@ -91,6 +91,7 @@ export function pushMapDrawFeatures(feature: MyFeature) {
     id: nanoid(),
     sessionId: globalSessionId.value,
     videoId: globalVideoId.value,
+    createdStr: globalAllSessions.value?.find(item => item.id === globalSessionId.value)?.videoList.find(item => item.aid === globalVideoId.value)?.createdStr,
   }
   feature.properties = {
     ...globalCurrentProperties.value,
@@ -113,6 +114,10 @@ function handleFeatureHover(e: any) {
   const map = window.map
   const description = e.features[0].properties.description
   const { geometry } = e.features[0]
+  if (globalDrawMove.value) {
+    map.getCanvas().style.cursor = 'move'
+    return
+  }
   if (description) {
     //
     if (geometry.type === 'Point') {
@@ -127,6 +132,44 @@ function handleFeatureHoverLeave(_e: any) {
   const map = window.map
   map.getCanvas().style.cursor = ''
   popup.remove()
+}
+function handleFeatureMouseDown(e: any) {
+  const map = window.map
+  function onMove(e: any) {
+    const coords = e.lngLat
+
+    // Set a UI indicator for dragging.
+    map.getCanvas().style.cursor = 'grabbing'
+
+    // prevent this popup from opening when the original click was on a marker
+    // console.log(e)
+    const [feature] = e.features
+    // Update the Point feature in `geojson` coordinates
+    // and call setData to the source layer `point` on it.
+    feature.geometry.coordinates = [coords.lng, coords.lat]
+    // geojson.features[0].geometry.coordinates = [coords.lng, coords.lat]
+    map.getSource(MAP_DRAW_SOURCE).setData(e.features)
+  }
+
+  function onUp(e: any) {
+    const coords = e.lngLat
+
+    // Print the coordinates of where the point had
+    // finished being dragged to on the map.
+    coordinates.style.display = 'block'
+    coordinates.innerHTML = `Longitude: ${coords.lng}<br />Latitude: ${coords.lat}`
+    map.getCanvas().style.cursor = ''
+
+    // Unbind mouse/touch events
+    map.off('mousemove', onMove)
+    map.off('touchmove', onMove)
+  }
+  if (globalDrawMove.value) {
+    e.preventDefault()
+    map.getCanvas().style.cursor = 'grab'
+    map.on('mousemove', onMove)
+    map.once('mouseup', onUp)
+  }
 }
 
 function handleFeatureClick(e: any) {
@@ -278,6 +321,7 @@ export function drawPoint() {
   map.on('touchend', MAP_DRAW_LAYER_POINT, handleFeatureClick)
   map.on('mouseenter', MAP_DRAW_LAYER_POINT, handleFeatureHover)
   map.on('mouseleave', MAP_DRAW_LAYER_POINT, handleFeatureHoverLeave)
+  // map.on('mousedown', MAP_DRAW_LAYER_POINT, handleFeatureMouseDown)
 }
 
 export function reloadMapDrawLayer() {

@@ -9,10 +9,13 @@ function onTabCollapse() {
 }
 
 watchEffect(() => {
-  if (activeKey.value === '2')
+  if (activeKey.value === '2') {
     handleMapDrawEdit()
-  else
+  }
+  else {
     handleMapExitDrawEdit()
+    handleMapDrawMove(false)
+  }
 })
 </script>
 
@@ -118,6 +121,13 @@ watchEffect(() => {
             <div class="text-size-40px i-gis-circle-o" :class="{ 'bg-red': globalDrawMode === 'draw_radius' }" />
           </template>
           圆
+        </TabPanelIconBtn>
+
+        <TabPanelIconBtn class="mr-5" @click="handleMapDrawMove(!globalDrawMove)">
+          <template #icon>
+            <div class="text-size-40px i-carbon-move" :class="{ 'bg-red': globalDrawMove }" />
+          </template>
+          移动
         </TabPanelIconBtn>
       </div>
     </a-tab-pane>

@@ -14,6 +14,9 @@ const videoList = computed(() => {
 function handleClick(item: FormatVideo) {
   globalVideoId.value = item.aid
 }
+function handleClickReset() {
+  globalVideoId.value = -1
+}
 function handlePlay(item: FormatVideo) {
   open(`https://www.bilibili.com/video/${item.bvid}`)
 }
@@ -22,6 +25,13 @@ function handlePlay(item: FormatVideo) {
 <template>
   <a-scrollbar style="height:200px;overflow: auto;">
     <div class="grid grid-cols-2 gap-20px">
+      <div
+        class="flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
+        :class="globalVideoId !== -1 ? 'bg-[var(--color-neutral-2)]' : 'bg-blue-500 text-white'"
+        @click="handleClickReset()"
+      >
+        全部路线
+      </div>
       <div
         v-for="item in videoList" :key="item.aid" class="flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
         :class="globalVideoId !== item.aid ? 'bg-[var(--color-neutral-2)]' : 'bg-blue-500 text-white'"
