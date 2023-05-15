@@ -5,12 +5,30 @@ import { storeMapDrawLayerCheckedKeys } from '~/composables'
 
 const IconFont = Icon.addFromIconFontCn({ src: DEFAULT_ICONFONT_CN_URL })
 const treeData = computed<any>(() => {
-  const filterPoints = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'Point' && item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value).map(item => ({
-    title: item.properties!.description || item.properties!.id,
-    key: item.properties!.id,
-    icon: () => h(IconFont, { type: 'icon-dian' }),
-    leaf: true,
-  }))
+  const filterPoints = storeMapDrawFeatures.value
+    .filter(item => item.geometry.type === 'Point')
+    .filter((item) => {
+      if (globalSessionId.value === -1)
+        return true
+      else if (item.properties?.sessionId === globalSessionId.value)
+        return true
+      else
+        return false
+    })
+    .filter((item) => {
+      if (globalVideoId.value === -1)
+        return true
+      else if (item.properties?.videoId === globalVideoId.value)
+        return true
+      else
+        return false
+    })
+    .map(item => ({
+      title: item.properties!.description || item.properties!.id,
+      key: item.properties!.id,
+      icon: () => h(IconFont, { type: 'icon-dian' }),
+      leaf: true,
+    }))
   const filterLineStrings = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'LineString' && item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value).map(item => ({
     title: item.properties!.description || item.properties!.id,
     key: item.properties!.id,
@@ -26,21 +44,21 @@ const treeData = computed<any>(() => {
   return [
     {
       title: '点',
-      key: 'point',
+      key: 'Point',
       leaf: false,
       icon: () => h(IconLayers),
       children: filterPoints,
     },
     {
       title: '线',
-      key: 'linestring',
+      key: 'LineString',
       leaf: false,
       icon: () => h(IconLayers),
       children: filterLineStrings,
     },
     {
       title: '面',
-      key: 'polygon',
+      key: 'Polygon',
       leaf: false,
       icon: () => h(IconLayers),
       children: filterPolygons,
@@ -49,8 +67,14 @@ const treeData = computed<any>(() => {
 })
 
 function handleDelete(node: any) {
-  storeMapDrawFeatures.value = storeMapDrawFeatures.value.filter(item => item.properties!.id !== node.key)
-  Message.success('已删除')
+  if (node.leaf) {
+    storeMapDrawFeatures.value = storeMapDrawFeatures.value.filter(item => item.properties!.id !== node.key)
+    Message.success('已删除')
+  }
+  else {
+    storeMapDrawFeatures.value = storeMapDrawFeatures.value.filter(item => item.geometry.type === node.key)
+    Message.success('已删除')
+  }
 }
 function handleClickTreeItem(node: any) {
   const current = storeMapDrawFeatures.value.find(item => item.properties!.id === node.key)
@@ -64,23 +88,25 @@ function handleClickTreeItem(node: any) {
 </script>
 
 <template>
-  <a-tree
-    v-model:checked-keys="storeMapDrawLayerCheckedKeys"
-    :block-node="true"
-    :checkable="true"
-    :data="treeData"
-  >
-    <template #title="nodeData">
-      <span @click="handleClickTreeItem(nodeData)">{{ nodeData.title }}</span>
-    </template>
-    <template #extra="nodeData">
-      <span v-if="nodeData.leaf" class="text-red-500">
-        <a-popconfirm content="真的要删除此数据?" @ok="handleDelete(nodeData)">
-          <IconDelete
-            class="absolute right-8px text-size-12px top-10px"
-          />
-        </a-popconfirm>
-      </span>
-    </template>
-  </a-tree>
+  <a-scrollbar style="max-height:400px;overflow: auto;">
+    <a-tree
+      v-model:checked-keys="storeMapDrawLayerCheckedKeys"
+      :block-node="true"
+      :checkable="true"
+      :data="treeData"
+    >
+      <template #title="nodeData">
+        <span @click="handleClickTreeItem(nodeData)">{{ nodeData.title }}</span>
+      </template>
+      <template #extra="nodeData">
+        <span class="text-red-500">
+          <a-popconfirm content="真的要删除此数据?" @ok="handleDelete(nodeData)">
+            <IconDelete
+              class="absolute right-8px text-size-12px top-10px"
+            />
+          </a-popconfirm>
+        </span>
+      </template>
+    </a-tree>
+  </a-scrollbar>
 </template>

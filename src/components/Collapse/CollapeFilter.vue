@@ -7,7 +7,7 @@ function handleClick(item: any) {
 </script>
 
 <template>
-  <a-scrollbar style="height:200px;overflow: auto;">
+  <a-scrollbar style="height:400px;overflow: auto;">
     <a-select v-model:model-value="globalMapDataValue" :options="MAP_DATA_LIST" />
     <div class="grid grid-cols-2 gap-20px">
       <div

@@ -23,7 +23,11 @@ export function handleSendIssueUseEmail() {
     }
     Modal.info({
       title: '提示',
-      content: '确定提交此数据嘛？',
+      width: '800px',
+      content: () => h('div', { class: 'overflow-auto h-500px' }, [
+        h('dev', '确定提交此数据嘛？'),
+        h('pre', JSON.stringify(filterMapDrawFeatures, null, 2)),
+      ]),
       onOk() {
         const sessionIdx = globalAllSessions.value!.findIndex(item => item.id === globalSessionId.value)
         const sessionName = globalAllSessions.value![sessionIdx].title

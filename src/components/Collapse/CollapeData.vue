@@ -23,7 +23,7 @@ function handlePlay(item: FormatVideo) {
 </script>
 
 <template>
-  <a-scrollbar style="height:200px;overflow: auto;">
+  <a-scrollbar style="height:400px;overflow: auto;">
     <div class="grid grid-cols-2 gap-20px">
       <div
         class="flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
