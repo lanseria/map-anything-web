@@ -5,3 +5,4 @@ export * from './global'
 export * from './fetch'
 
 export * from './map/mapLoad'
+export * from './map/mapLayer'

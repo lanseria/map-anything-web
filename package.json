@@ -45,7 +45,7 @@
     "@unocss/reset": "^0.51.12",
     "@vitejs/plugin-vue": "^4.2.3",
     "eslint": "^8.40.0",
-    "pnpm": "^8.5.0",
+    "pnpm": "^8.5.1",
     "taze": "^0.10.1",
     "typescript": "^5.0.4",
     "unocss": "^0.51.12",

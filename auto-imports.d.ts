@@ -34,7 +34,9 @@ declare global {
   const LineStringTypeEnumMap: typeof import('./src/composables/constant')['LineStringTypeEnumMap']
   const MAPBOX_STYLE_LIST: typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']
   const MAPBOX_TOKEN: typeof import('./src/composables/constant')['MAPBOX_TOKEN']
+  const MAP_DATA_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']
   const MAP_DATA_LIST: typeof import('./src/composables/constant')['MAP_DATA_LIST']
+  const MAP_DATA_SOURCE: typeof import('./src/composables/constant')['MAP_DATA_SOURCE']
   const MAP_DRAW_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']
   const MAP_DRAW_LAYER_POLYGON_FILL: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']
   const MAP_DRAW_LAYER_POLYGON_OUTLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']
@@ -47,6 +49,7 @@ declare global {
   const SETTING_SYMBOL_MAXSIZE: typeof import('./src/composables/constant')['SETTING_SYMBOL_MAXSIZE']
   const SETTING_TEXT_MAXSIZE: typeof import('./src/composables/constant')['SETTING_TEXT_MAXSIZE']
   const SYMBOL_PREFIX: typeof import('./src/composables/constant')['SYMBOL_PREFIX']
+  const addSource: typeof import('./src/composables/map/mapLayer')['addSource']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
   const computed: typeof import('vue')['computed']
@@ -70,6 +73,7 @@ declare global {
   const debouncedWatch: typeof import('@vueuse/core')['debouncedWatch']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
+  const drawPoint: typeof import('./src/composables/map/mapLayer')['drawPoint']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const extendRef: typeof import('@vueuse/core')['extendRef']
@@ -80,9 +84,12 @@ declare global {
   const globalDrawEdit: typeof import('./src/composables/global')['globalDrawEdit']
   const globalDrawMode: typeof import('./src/composables/global')['globalDrawMode']
   const globalDrawMove: typeof import('./src/composables/global')['globalDrawMove']
+  const globalGeojson: typeof import('./src/composables/global')['globalGeojson']
+  const globalGeojsonExecute: typeof import('./src/composables/global')['globalGeojsonExecute']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
   const globalMapDataExecute: typeof import('./src/composables/global')['globalMapDataExecute']
+  const globalMapDataGeojsonUrl: typeof import('./src/composables/global')['globalMapDataGeojsonUrl']
   const globalMapDataValue: typeof import('./src/composables/global')['globalMapDataValue']
   const globalMapDataValueUrl: typeof import('./src/composables/global')['globalMapDataValueUrl']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
@@ -143,6 +150,7 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
+  const reloadDataSourceLayer: typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
@@ -390,7 +398,9 @@ declare module 'vue' {
     readonly LineStringTypeEnumMap: UnwrapRef<typeof import('./src/composables/constant')['LineStringTypeEnumMap']>
     readonly MAPBOX_STYLE_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_STYLE_LIST']>
     readonly MAPBOX_TOKEN: UnwrapRef<typeof import('./src/composables/constant')['MAPBOX_TOKEN']>
+    readonly MAP_DATA_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']>
     readonly MAP_DATA_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LIST']>
+    readonly MAP_DATA_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_SOURCE']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
     readonly MAP_DRAW_LAYER_POLYGON_OUTLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']>
@@ -403,6 +413,7 @@ declare module 'vue' {
     readonly SETTING_SYMBOL_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_SYMBOL_MAXSIZE']>
     readonly SETTING_TEXT_MAXSIZE: UnwrapRef<typeof import('./src/composables/constant')['SETTING_TEXT_MAXSIZE']>
     readonly SYMBOL_PREFIX: UnwrapRef<typeof import('./src/composables/constant')['SYMBOL_PREFIX']>
+    readonly addSource: UnwrapRef<typeof import('./src/composables/map/mapLayer')['addSource']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -426,6 +437,7 @@ declare module 'vue' {
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
@@ -436,9 +448,12 @@ declare module 'vue' {
     readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
     readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
     readonly globalDrawMove: UnwrapRef<typeof import('./src/composables/global')['globalDrawMove']>
+    readonly globalGeojson: UnwrapRef<typeof import('./src/composables/global')['globalGeojson']>
+    readonly globalGeojsonExecute: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonExecute']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/global')['globalMapDataExecute']>
+    readonly globalMapDataGeojsonUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataGeojsonUrl']>
     readonly globalMapDataValue: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValue']>
     readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValueUrl']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
@@ -499,6 +514,7 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly reloadDataSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['reloadDataSourceLayer']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
