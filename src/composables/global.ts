@@ -74,12 +74,20 @@ watch(() => globalMapDataGeojsonUrl.value, () => {
   globalGeojsonExecute()
 })
 
-watchDebounced(() => globalGeojson.value, () => {
-  console.warn('mapFeatures changed')
-  console.warn('drawLayerCheckedKeys changed')
-  reloadDataSourceLayer()
-}, { debounce: 300, maxWait: 600, immediate: true })
-
 export const globalSessionId = ref(-1)
 
 export const globalVideoId = ref(-1)
+
+watchDebounced([() => globalGeojson.value,
+  () => globalSessionId.value,
+  () => globalVideoId.value], () => {
+  console.warn('globalGeojson changed')
+  if (globalIsMapboxLoad.value) {
+    reloadDataSourceLayer()
+  }
+  else {
+    setTimeout(() => {
+      reloadDataSourceLayer()
+    }, 500)
+  }
+}, { debounce: 300, maxWait: 600, immediate: true })

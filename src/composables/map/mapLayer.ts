@@ -1,7 +1,25 @@
+import type { MyFeature } from '../types'
+
 export function addSource() {
   const map = window.map
   const source: any = map.getSource(MAP_DATA_SOURCE)
-  const filterMapFeatures = globalGeojson.value?.features || []
+  const filterMapFeatures = ((globalGeojson.value?.features || []) as MyFeature[]).filter(
+    (item) => {
+      if (globalSessionId.value === -1)
+        return true
+      else if (item.properties?.sessionId === globalSessionId.value)
+        return true
+      else
+        return false
+    },
+  ).filter((item) => {
+    if (globalVideoId.value === -1)
+      return true
+    else if (item.properties?.videoId === globalVideoId.value)
+      return true
+    else
+      return false
+  })
   // 判断source
   if (source) {
     source.setData(
@@ -30,9 +48,9 @@ export function drawPoint() {
     layout: {
       'text-field': ['get', 'description'],
       'icon-image': 'bicycle1',
-      'icon-size': ['coalesce', ['get', 'icon-size'], 1],
+      'icon-size': 0.1,
       'text-size': ['get', 'text-size'],
-      'text-offset': [0, 1.5],
+      'text-offset': [0, 0.5],
       'text-anchor': 'top',
       'icon-allow-overlap': true,
     },
