@@ -1,15 +1,30 @@
 <script lang="ts" setup>
-import { globalMapDataValue } from '~/composables'
+import { globalMapDataValue, globalSessionId } from '~/composables'
 
-function handleClick(item: any) {
-  globalSessionId.value = item.id
-}
+// function handleClick(item: any) {
+//   globalSessionId.value = item.id
+// }
+const sessionOptions = computed(() => {
+  return globalAllSessions.value?.map((item: any) => {
+    return {
+      label: item.title,
+      value: item.id,
+    }
+  })
+})
 </script>
 
 <template>
-  <a-scrollbar style="height:400px;overflow: auto;">
-    <a-select v-model:model-value="globalMapDataValue" :options="MAP_DATA_LIST" />
-    <div class="grid grid-cols-2 gap-20px">
+  <a-scrollbar style="max-height:400px;overflow: auto;">
+    <a-form :model="{}" layout="vertical">
+      <a-form-item label="数据源">
+        <a-select v-model:model-value="globalMapDataValue" :options="MAP_DATA_LIST" />
+      </a-form-item>
+      <a-form-item label="路线">
+        <a-select v-model:model-value="globalSessionId" :options="sessionOptions" />
+      </a-form-item>
+    </a-form>
+    <!-- <div class="grid grid-cols-2 gap-20px">
       <div
         v-for="item in globalAllSessions" :key="item.id"
         class="flex  rounded-lg border p-5px border-[var(--color-neutral-2)]"
@@ -33,6 +48,6 @@ function handleClick(item: any) {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </a-scrollbar>
 </template>

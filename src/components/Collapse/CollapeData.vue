@@ -33,19 +33,15 @@ function handlePlay(item: FormatVideo) {
         全部路线
       </div>
       <div
-        v-for="item in videoList" :key="item.aid" class="flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
-        :class="globalVideoId !== item.aid ? 'bg-[var(--color-neutral-2)]' : 'bg-blue-500 text-white'"
+        v-for="item in videoList" :key="item.aid" class="cursor-pointer flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
+        :class="globalVideoId !== item.aid ? 'bg-[var(--color-neutral-2)]' : 'bg-blue-500 '"
         @click="handleClick(item)" @dblclick="handlePlay(item)"
       >
         <div class="flex flex-col">
-          <div>{{ item.title }}</div>
-          <div class="cursor-pointer" title="查看数">
-            <icon-eye />{{ item.play }}
+          <div class="text-12px">
+            {{ item.title }}
           </div>
-          <div title="评论数">
-            <icon-message />{{ item.comment }}
-          </div>
-          <div title="发布时间">
+          <div title="发布时间" class="text-12px text-[var(--color-neutral-8)]">
             <icon-clock-circle />{{ item.createdStr }}
           </div>
         </div>
