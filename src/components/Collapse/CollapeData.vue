@@ -26,15 +26,15 @@ function handlePlay(item: FormatVideo) {
   <a-scrollbar style="height:400px;overflow: auto;">
     <div class="grid grid-cols-2 gap-20px">
       <div
-        class="flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
-        :class="globalVideoId !== -1 ? 'bg-[var(--color-neutral-2)]' : 'bg-blue-500 text-white'"
+        class="cursor-pointer flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
+        :class="globalVideoId !== -1 ? 'bg-[var(--color-neutral-2)]' : 'bg-[var(--color-neutral-4)]'"
         @click="handleClickReset()"
       >
         全部路线
       </div>
       <div
         v-for="item in videoList" :key="item.aid" class="cursor-pointer flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
-        :class="globalVideoId !== item.aid ? 'bg-[var(--color-neutral-2)]' : 'bg-blue-500 '"
+        :class="globalVideoId !== item.aid ? 'bg-[var(--color-neutral-2)]' : 'bg-[var(--color-neutral-4)] '"
         @click="handleClick(item)" @dblclick="handlePlay(item)"
       >
         <div class="flex flex-col">

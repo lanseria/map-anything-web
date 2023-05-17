@@ -56,6 +56,7 @@ export const globalCurrentProperties = ref(null) as Ref<any>
 export const globalMapDrawFeatureModalVisible = ref(false)
 
 export const globalMapDataValue = ref('/xuyun-data')
+
 export const globalMapDataValueUrl = computed(() => {
   return `${globalMapDataValue.value}/json/allSessions.json`
 })
@@ -64,10 +65,6 @@ export const globalMapDataGeojsonUrl = computed(() => {
 })
 export const { data: globalAllSessions, execute: globalMapDataExecute } = useFetch<FormatSession[]>(globalMapDataValueUrl).get().json<FormatSession[]>()
 
-watch(() => globalMapDataValueUrl.value, () => {
-  globalMapDataExecute()
-})
-
 export const { data: globalGeojson, execute: globalGeojsonExecute } = useFetch<FeatureCollection<any, MyFeature>>(globalMapDataGeojsonUrl).get().json<FeatureCollection<any, MyFeature>>()
 
 watch(() => globalMapDataGeojsonUrl.value, () => {
@@ -75,7 +72,11 @@ watch(() => globalMapDataGeojsonUrl.value, () => {
 })
 
 export const globalSessionId = ref(-1)
-
+watch(() => globalMapDataValueUrl.value, async () => {
+  await globalMapDataExecute()
+  if (globalAllSessions.value?.length)
+    globalSessionId.value = globalAllSessions.value[0].id
+})
 export const globalVideoId = ref(-1)
 
 watchDebounced([() => globalGeojson.value,
