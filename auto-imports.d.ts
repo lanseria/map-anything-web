@@ -103,6 +103,7 @@ declare module 'vue' {
     readonly globalMapDataValue: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValue']>
     readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValueUrl']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
+    readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapPointUrl']>
     readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
@@ -164,6 +165,7 @@ declare module 'vue' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
+    readonly setMapPointImg: UnwrapRef<typeof import('./src/composables/map/mapLoad')['setMapPointImg']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -459,6 +461,7 @@ declare module 'vue' {
   const globalMapDataValue: typeof import('./src/composables/global')['globalMapDataValue']
   const globalMapDataValueUrl: typeof import('./src/composables/global')['globalMapDataValueUrl']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
+  const globalMapPointUrl: typeof import('./src/composables/global')['globalMapPointUrl']
   const globalSessionId: typeof import('./src/composables/global')['globalSessionId']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const globalVideoId: typeof import('./src/composables/global')['globalVideoId']
@@ -520,6 +523,7 @@ declare module 'vue' {
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
+  const setMapPointImg: typeof import('./src/composables/map/mapLoad')['setMapPointImg']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -823,6 +827,7 @@ declare module 'vue' {
     readonly globalMapDataValue: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValue']>
     readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValueUrl']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
+    readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapPointUrl']>
     readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
@@ -884,6 +889,7 @@ declare module 'vue' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
+    readonly setMapPointImg: UnwrapRef<typeof import('./src/composables/map/mapLoad')['setMapPointImg']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>

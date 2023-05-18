@@ -63,6 +63,9 @@ export const globalMapDataValueUrl = computed(() => {
 export const globalMapDataGeojsonUrl = computed(() => {
   return `${globalMapDataValue.value}/geojson/allPoints.geojson`
 })
+export const globalMapPointUrl = computed(() => {
+  return `${globalMapDataValue.value}/img/map-point.png`
+})
 export const { data: globalAllSessions, execute: globalMapDataExecute } = useFetch<FormatSession[]>(globalMapDataValueUrl).get().json<FormatSession[]>()
 
 export const { data: globalGeojson, execute: globalGeojsonExecute } = useFetch<FeatureCollection<any, MyFeature>>(globalMapDataGeojsonUrl).get().json<FeatureCollection<any, MyFeature>>()

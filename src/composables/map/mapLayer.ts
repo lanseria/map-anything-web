@@ -47,7 +47,7 @@ export function drawPoint() {
     source: MAP_DATA_SOURCE,
     layout: {
       'text-field': ['get', 'description'],
-      'icon-image': 'bicycle1',
+      'icon-image': 'map-point',
       'icon-size': 0.1,
       'text-size': ['get', 'text-size'],
       'text-offset': [0, 0.5],
