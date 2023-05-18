@@ -1,5 +1,21 @@
 import { Message, Modal } from '@arco-design/web-vue'
 import dayjs from 'dayjs'
+import queryString from 'query-string'
+
+export function handleComputeDistance() {
+  //
+  const points = globalComputedFilterMapFeatures.value.filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
+  // console.log(points)
+  const pointStrArr = points.map((item) => {
+    return encodeURIComponent(item)
+  })
+  // console.log(pointStrArr)
+  const query = queryString.stringify({
+    point: pointStrArr,
+  })
+  const url = `https://graphhopper.com/maps/?${query}&profile=mtb&layer=OpenStreetMap`
+  open(url)
+}
 
 export function handleSendIssueUseEmail() {
   const mapData = MAP_DATA_LIST.find(item => item.value === globalMapDataValue.value)

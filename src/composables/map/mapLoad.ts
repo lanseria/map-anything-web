@@ -16,14 +16,20 @@ function setMapPointImg(url: string) {
   const name = 'map-point'
   if (map.hasImage(name))
     map.removeImage(name)
-
   loadImg('map-point', url)
 }
 
-watch(() => globalMapPointUrl.value, () => {
+watch([() => globalMapPointUrl.value, () => globalIsMapboxLoad.value], () => {
   if (globalMapPointUrl.value === '')
     return
-  setMapPointImg(globalMapPointUrl.value)
+  if (globalIsMapboxLoad.value) {
+    setMapPointImg(globalMapPointUrl.value)
+  }
+  else {
+    setTimeout(() => {
+      setMapPointImg(globalMapPointUrl.value)
+    })
+  }
 })
 
 export function mapLoad() {

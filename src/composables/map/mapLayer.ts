@@ -1,25 +1,7 @@
-import type { MyFeature } from '../types'
-
 export function addSource() {
   const map = window.map
   const source: any = map.getSource(MAP_DATA_SOURCE)
-  const filterMapFeatures = ((globalGeojson.value?.features || []) as MyFeature[]).filter(
-    (item) => {
-      if (globalSessionId.value === -1)
-        return true
-      else if (item.properties?.sessionId === globalSessionId.value)
-        return true
-      else
-        return false
-    },
-  ).filter((item) => {
-    if (globalVideoId.value === -1)
-      return true
-    else if (item.properties?.videoId === globalVideoId.value)
-      return true
-    else
-      return false
-  })
+  const filterMapFeatures = globalComputedFilterMapFeatures.value
   // 判断source
   if (source) {
     source.setData(

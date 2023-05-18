@@ -85,6 +85,13 @@ watchEffect(() => {
           </template>
         </a-dropdown>
 
+        <TabPanelIconBtn class="mr-5" @click="handleComputeDistance">
+          <template #icon>
+            <div class="text-size-40px i-mdi-map-marker-distance" />
+          </template>
+          计算路程
+        </TabPanelIconBtn>
+
         <TabPanelIconBtn class="mr-5" @click="handleSendIssueUseEmail">
           <template #icon>
             <div class="text-size-40px i-carbon-mail-reply" />

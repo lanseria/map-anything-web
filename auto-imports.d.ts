@@ -90,6 +90,7 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAllSessions: UnwrapRef<typeof import('./src/composables/global')['globalAllSessions']>
+    readonly globalComputedFilterMapFeatures: UnwrapRef<typeof import('./src/composables/global')['globalComputedFilterMapFeatures']>
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
     readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
     readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
@@ -108,6 +109,7 @@ declare module 'vue' {
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
     readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
@@ -165,7 +167,6 @@ declare module 'vue' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
-    readonly setMapPointImg: UnwrapRef<typeof import('./src/composables/map/mapLoad')['setMapPointImg']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
@@ -448,6 +449,7 @@ declare module 'vue' {
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const globalAllSessions: typeof import('./src/composables/global')['globalAllSessions']
+  const globalComputedFilterMapFeatures: typeof import('./src/composables/global')['globalComputedFilterMapFeatures']
   const globalCurrentProperties: typeof import('./src/composables/global')['globalCurrentProperties']
   const globalDrawEdit: typeof import('./src/composables/global')['globalDrawEdit']
   const globalDrawMode: typeof import('./src/composables/global')['globalDrawMode']
@@ -466,6 +468,7 @@ declare module 'vue' {
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const globalVideoId: typeof import('./src/composables/global')['globalVideoId']
   const h: typeof import('vue')['h']
+  const handleComputeDistance: typeof import('./src/composables/fetch')['handleComputeDistance']
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
   const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
@@ -523,7 +526,6 @@ declare module 'vue' {
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
-  const setMapPointImg: typeof import('./src/composables/map/mapLoad')['setMapPointImg']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
@@ -814,6 +816,7 @@ declare module 'vue' {
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly globalAllSessions: UnwrapRef<typeof import('./src/composables/global')['globalAllSessions']>
+    readonly globalComputedFilterMapFeatures: UnwrapRef<typeof import('./src/composables/global')['globalComputedFilterMapFeatures']>
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
     readonly globalDrawEdit: UnwrapRef<typeof import('./src/composables/global')['globalDrawEdit']>
     readonly globalDrawMode: UnwrapRef<typeof import('./src/composables/global')['globalDrawMode']>
@@ -832,6 +835,7 @@ declare module 'vue' {
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
     readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
@@ -889,7 +893,6 @@ declare module 'vue' {
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
-    readonly setMapPointImg: UnwrapRef<typeof import('./src/composables/map/mapLoad')['setMapPointImg']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>

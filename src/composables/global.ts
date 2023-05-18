@@ -73,7 +73,6 @@ export const { data: globalGeojson, execute: globalGeojsonExecute } = useFetch<F
 watch(() => globalMapDataGeojsonUrl.value, () => {
   globalGeojsonExecute()
 })
-
 export const globalSessionId = ref(-1)
 watch(() => globalMapDataValueUrl.value, async () => {
   await globalMapDataExecute()
@@ -84,14 +83,29 @@ export const globalVideoId = ref(-1)
 
 watchDebounced([() => globalGeojson.value,
   () => globalSessionId.value,
-  () => globalVideoId.value], () => {
+  () => globalVideoId.value,
+  () => globalIsMapboxLoad.value], () => {
   console.warn('globalGeojson changed')
-  if (globalIsMapboxLoad.value) {
+  if (globalIsMapboxLoad.value)
     reloadDataSourceLayer()
-  }
-  else {
-    setTimeout(() => {
-      reloadDataSourceLayer()
-    }, 500)
-  }
 }, { debounce: 300, maxWait: 600, immediate: true })
+
+export const globalComputedFilterMapFeatures = computed(() => {
+  return ((globalGeojson.value?.features || []) as MyFeature[]).filter(
+    (item) => {
+      if (globalSessionId.value === -1)
+        return true
+      else if (item.properties?.sessionId === globalSessionId.value)
+        return true
+      else
+        return false
+    },
+  ).filter((item) => {
+    if (globalVideoId.value === -1)
+      return true
+    else if (item.properties?.videoId === globalVideoId.value)
+      return true
+    else
+      return false
+  })
+})
