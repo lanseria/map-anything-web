@@ -1,5 +1,4 @@
-import { Message, Modal } from '@arco-design/web-vue'
-import dayjs from 'dayjs'
+import { Message } from '@arco-design/web-vue'
 import queryString from 'query-string'
 
 export function handleComputeDistance() {
@@ -37,33 +36,6 @@ export function handleSendIssueUseEmail() {
       Message.warning('未画图(当前路线),无法发送邮件')
       return
     }
-    Modal.info({
-      title: '提示',
-      width: '800px',
-      content: () => h('div', { class: 'overflow-auto h-500px' }, [
-        h('dev', '确定提交此数据嘛？'),
-        h('pre', JSON.stringify(filterMapDrawFeatures, null, 2)),
-      ]),
-      onOk() {
-        const sessionIdx = globalAllSessions.value!.findIndex(item => item.id === globalSessionId.value)
-        const sessionName = globalAllSessions.value![sessionIdx].title
-        const videoIdx = globalAllSessions.value![sessionIdx].videoList.findIndex(item => item.aid === globalVideoId.value)
-        const videoName = globalAllSessions.value![sessionIdx].videoList[videoIdx].title
-        const title = `[${dayjs().format('YYYY-MM-DD HH:mm:ss')}][${sessionName}]${videoName}`
-        useFetch('https://s8zygv.laf.run/sendEmail', {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
-          body: JSON.stringify({
-            subject: title,
-            milestone: sessionName,
-            text: filterMapDrawFeatures,
-            issue: mapData.issue,
-          }),
-        }).post().json()
-        Message.success('发送成功')
-      },
-    })
+    globalModalDrawDataUploadVisible.value = true
   }
 }

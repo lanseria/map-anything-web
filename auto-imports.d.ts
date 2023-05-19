@@ -105,6 +105,7 @@ declare module 'vue' {
     readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValueUrl']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
     readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapPointUrl']>
+    readonly globalModalDrawDataUploadVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']>
     readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
@@ -464,6 +465,7 @@ declare module 'vue' {
   const globalMapDataValueUrl: typeof import('./src/composables/global')['globalMapDataValueUrl']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
   const globalMapPointUrl: typeof import('./src/composables/global')['globalMapPointUrl']
+  const globalModalDrawDataUploadVisible: typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']
   const globalSessionId: typeof import('./src/composables/global')['globalSessionId']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const globalVideoId: typeof import('./src/composables/global')['globalVideoId']
@@ -831,6 +833,7 @@ declare module 'vue' {
     readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValueUrl']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
     readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapPointUrl']>
+    readonly globalModalDrawDataUploadVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']>
     readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>

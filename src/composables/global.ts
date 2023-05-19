@@ -54,6 +54,7 @@ watchEffect(() => {
 export const globalCurrentProperties = ref(null) as Ref<any>
 
 export const globalMapDrawFeatureModalVisible = ref(false)
+export const globalModalDrawDataUploadVisible = ref(false)
 
 export const globalMapDataValue = ref('/xuyun-data')
 

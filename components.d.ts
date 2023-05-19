@@ -17,6 +17,7 @@ declare module '@vue/runtime-core' {
     ContentMap: typeof import('./src/components/Content/ContentMap.vue')['default']
     ContentSide: typeof import('./src/components/Content/ContentSide.vue')['default']
     FormMapDraw: typeof import('./src/components/Form/FormMapDraw.vue')['default']
+    ModalDrawDataUpload: typeof import('./src/components/Modal/ModalDrawDataUpload.vue')['default']
     ModalMapDraw: typeof import('./src/components/Modal/ModalMapDraw.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
