@@ -3,7 +3,7 @@ import { Message } from '@arco-design/web-vue'
 import dayjs from 'dayjs'
 import Editor from '../Editor.vue'
 
-const filterMapDrawFeatures = ref('')
+const filterMapDataMultipleMarkerFeatures = ref('')
 const { copy, copied, isSupported } = useClipboard()
 function handleOk() {
   const mapData = MAP_DATA_LIST.find(item => item.value === globalMapDataValue.value)
@@ -20,25 +20,25 @@ function handleOk() {
     body: JSON.stringify({
       subject: title,
       milestone: sessionName,
-      text: filterMapDrawFeatures.value,
+      text: filterMapDataMultipleMarkerFeatures.value,
       issue: mapData!.issue,
     }),
   }).post().json()
   Message.success('发送成功')
 }
 function handleCancel() {
-  globalModalDrawDataUploadVisible.value = false
+  globalModalDataMultipleMarkerVisible.value = false
 }
 watchEffect(() => {
-  if (globalModalDrawDataUploadVisible.value)
-    filterMapDrawFeatures.value = JSON.stringify(storeMapDrawFeatures.value.filter(item => item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value), null, 2)
+  if (globalModalDataMultipleMarkerVisible.value)
+    filterMapDataMultipleMarkerFeatures.value = JSON.stringify(globalGeojsonFeatures.value.filter(item => item.properties.sessionId === globalSessionId.value && item.properties.videoId === globalVideoId.value), null, 2)
   else
-    filterMapDrawFeatures.value = ''
+    filterMapDataMultipleMarkerFeatures.value = ''
 })
 </script>
 
 <template>
-  <a-modal :visible="globalModalDrawDataUploadVisible" :width="600" @ok="handleOk" @cancel="handleCancel">
+  <a-modal :visible="globalModalDataMultipleMarkerVisible" :width="600" @ok="handleOk" @cancel="handleCancel">
     <template #title>
       提示
     </template>
@@ -47,7 +47,7 @@ watchEffect(() => {
         <div>
           确定提交此数据嘛？
         </div>
-        <AButton v-if="isSupported" @click="copy(filterMapDrawFeatures)">
+        <AButton v-if="isSupported" @click="copy(filterMapDataMultipleMarkerFeatures)">
           <!-- by default, `copied` will be reset in 1.5s -->
           <span v-if="!copied">Copy</span>
           <span v-else>Copied!</span>
@@ -56,8 +56,8 @@ watchEffect(() => {
           Your browser does not support Clipboard API
         </AButton>
       </div>
-      <Editor v-model="filterMapDrawFeatures" class="h-400px" />
-      <!-- <pre class="overflow-auto h-400px">{{ JSON.stringify(filterMapDrawFeatures, null, 2) }}
+      <Editor v-model="filterMapDataMultipleMarkerFeatures" class="h-400px" />
+      <!-- <pre class="overflow-auto h-400px">{{ JSON.stringify(filterMapDataMultipleMarkerFeatures, null, 2) }}
       </pre> -->
     </div>
   </a-modal>

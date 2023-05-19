@@ -39,3 +39,7 @@ export function handleSendIssueUseEmail() {
     globalModalDrawDataUploadVisible.value = true
   }
 }
+
+export function handleMultipleMarker() {
+  globalModalDataMultipleMarkerVisible.value = true
+}

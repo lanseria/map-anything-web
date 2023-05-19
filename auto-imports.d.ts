@@ -97,6 +97,7 @@ declare module 'vue' {
     readonly globalDrawMove: UnwrapRef<typeof import('./src/composables/global')['globalDrawMove']>
     readonly globalGeojson: UnwrapRef<typeof import('./src/composables/global')['globalGeojson']>
     readonly globalGeojsonExecute: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonExecute']>
+    readonly globalGeojsonFeatures: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonFeatures']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/global')['globalMapDataExecute']>
@@ -105,6 +106,7 @@ declare module 'vue' {
     readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValueUrl']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
     readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapPointUrl']>
+    readonly globalModalDataMultipleMarkerVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDataMultipleMarkerVisible']>
     readonly globalModalDrawDataUploadVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']>
     readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
@@ -115,6 +117,7 @@ declare module 'vue' {
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
     readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
+    readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
     readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
@@ -457,6 +460,7 @@ declare module 'vue' {
   const globalDrawMove: typeof import('./src/composables/global')['globalDrawMove']
   const globalGeojson: typeof import('./src/composables/global')['globalGeojson']
   const globalGeojsonExecute: typeof import('./src/composables/global')['globalGeojsonExecute']
+  const globalGeojsonFeatures: typeof import('./src/composables/global')['globalGeojsonFeatures']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
   const globalMapDataExecute: typeof import('./src/composables/global')['globalMapDataExecute']
@@ -465,6 +469,7 @@ declare module 'vue' {
   const globalMapDataValueUrl: typeof import('./src/composables/global')['globalMapDataValueUrl']
   const globalMapDrawFeatureModalVisible: typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']
   const globalMapPointUrl: typeof import('./src/composables/global')['globalMapPointUrl']
+  const globalModalDataMultipleMarkerVisible: typeof import('./src/composables/global')['globalModalDataMultipleMarkerVisible']
   const globalModalDrawDataUploadVisible: typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']
   const globalSessionId: typeof import('./src/composables/global')['globalSessionId']
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
@@ -475,6 +480,7 @@ declare module 'vue' {
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
   const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
   const handleMapExitDrawEdit: typeof import('./src/composables/global')['handleMapExitDrawEdit']
+  const handleMultipleMarker: typeof import('./src/composables/fetch')['handleMultipleMarker']
   const handleSelectGlobalDrawMode: typeof import('./src/composables/global')['handleSelectGlobalDrawMode']
   const handleSendIssueUseEmail: typeof import('./src/composables/fetch')['handleSendIssueUseEmail']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
@@ -825,6 +831,7 @@ declare module 'vue' {
     readonly globalDrawMove: UnwrapRef<typeof import('./src/composables/global')['globalDrawMove']>
     readonly globalGeojson: UnwrapRef<typeof import('./src/composables/global')['globalGeojson']>
     readonly globalGeojsonExecute: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonExecute']>
+    readonly globalGeojsonFeatures: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonFeatures']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/global')['globalMapDataExecute']>
@@ -833,6 +840,7 @@ declare module 'vue' {
     readonly globalMapDataValueUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataValueUrl']>
     readonly globalMapDrawFeatureModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalMapDrawFeatureModalVisible']>
     readonly globalMapPointUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapPointUrl']>
+    readonly globalModalDataMultipleMarkerVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDataMultipleMarkerVisible']>
     readonly globalModalDrawDataUploadVisible: UnwrapRef<typeof import('./src/composables/global')['globalModalDrawDataUploadVisible']>
     readonly globalSessionId: UnwrapRef<typeof import('./src/composables/global')['globalSessionId']>
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
@@ -843,6 +851,7 @@ declare module 'vue' {
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
     readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
+    readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
     readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>

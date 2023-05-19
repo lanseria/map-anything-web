@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
+import monacoEditorPlugin from 'vite-plugin-monaco-editor'
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
@@ -26,6 +27,15 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       sourcemap: true,
     },
     plugins: [
+      monacoEditorPlugin.default({
+        languageWorkers: ['json', 'editorWorkerService'],
+        customWorkers: [
+          {
+            label: 'graphql',
+            entry: 'monaco-graphql/dist/graphql.worker',
+          },
+        ],
+      }),
       vue({
         reactivityTransform: true,
       }),
@@ -58,5 +68,14 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       // see unocss.config.ts for config
       Unocss(),
     ],
+    optimizeDeps: {
+      include: [
+        'monaco-editor/esm/vs/language/json/json.worker',
+        'monaco-editor/esm/vs/language/css/css.worker',
+        'monaco-editor/esm/vs/language/html/html.worker',
+        'monaco-editor/esm/vs/language/typescript/ts.worker',
+        'monaco-editor/esm/vs/editor/editor.worker',
+      ],
+    },
   }
 }

@@ -85,6 +85,13 @@ watchEffect(() => {
           </template>
         </a-dropdown>
 
+        <TabPanelIconBtn class="mr-5" @click="handleMultipleMarker">
+          <template #icon>
+            <div class="text-size-40px i-mdi-map-marker-multiple" />
+          </template>
+          查看点位
+        </TabPanelIconBtn>
+
         <TabPanelIconBtn class="mr-5" @click="handleComputeDistance">
           <template #icon>
             <div class="text-size-40px i-mdi-map-marker-distance" />
