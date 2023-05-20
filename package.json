@@ -1,5 +1,5 @@
 {
-  "name": "arco-uno-basic-template",
+  "name": "map-anything-web",
   "type": "module",
   "version": "1.0.0",
   "private": true,
@@ -30,6 +30,7 @@
     "numeral": "^2.0.6",
     "query-string": "^8.1.0",
     "vue": "^3.3.4",
+    "vue-matomo": "^4.2.0",
     "vue-router": "^4.2.1"
   },
   "devDependencies": {

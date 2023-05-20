@@ -89,6 +89,7 @@ declare module 'vue' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
     readonly globalAllSessions: UnwrapRef<typeof import('./src/composables/global')['globalAllSessions']>
     readonly globalComputedFilterMapFeatures: UnwrapRef<typeof import('./src/composables/global')['globalComputedFilterMapFeatures']>
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>
@@ -454,6 +455,7 @@ declare module 'vue' {
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const globalAboutModalVisible: typeof import('./src/composables/global')['globalAboutModalVisible']
   const globalAllSessions: typeof import('./src/composables/global')['globalAllSessions']
   const globalComputedFilterMapFeatures: typeof import('./src/composables/global')['globalComputedFilterMapFeatures']
   const globalCurrentProperties: typeof import('./src/composables/global')['globalCurrentProperties']
@@ -827,6 +829,7 @@ declare module 'vue' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly globalAboutModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalAboutModalVisible']>
     readonly globalAllSessions: UnwrapRef<typeof import('./src/composables/global')['globalAllSessions']>
     readonly globalComputedFilterMapFeatures: UnwrapRef<typeof import('./src/composables/global')['globalComputedFilterMapFeatures']>
     readonly globalCurrentProperties: UnwrapRef<typeof import('./src/composables/global')['globalCurrentProperties']>

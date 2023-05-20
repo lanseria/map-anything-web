@@ -7,7 +7,12 @@ function onTabCollapse() {
     window.map.resize()
   })
 }
-
+function handleAbout() {
+  globalAboutModalVisible.value = true
+}
+function handleRefresh() {
+  location.reload()
+}
 watchEffect(() => {
   if (activeKey.value === '2') {
     handleMapDrawEdit()
@@ -154,7 +159,7 @@ watchEffect(() => {
           设置
         </TabPanelIconBtn>
 
-        <TabPanelIconBtn class="mr-5">
+        <TabPanelIconBtn class="mr-5" @click="handleRefresh">
           <template #icon>
             <div class="text-size-40px i-carbon-rotate-360" />
           </template>
@@ -166,7 +171,7 @@ watchEffect(() => {
           </template>
           主题
         </TabPanelIconBtn>
-        <TabPanelIconBtn class="mr-5">
+        <TabPanelIconBtn class="mr-5" @click="handleAbout">
           <template #icon>
             <div class="text-size-40px i-carbon-warning" />
           </template>

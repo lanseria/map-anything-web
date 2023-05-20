@@ -42,4 +42,5 @@ function onMoving() {
   <ModalMapDraw />
   <ModalDrawDataUpload />
   <ModalDataMultipleMarker />
+  <ModalAbout />
 </template>

@@ -8,6 +8,8 @@ interface Window {
   draw: MapboxDraw;
 }
 
+declare module 'vue-matomo';
+
 interface FormatSession {
   id: number
   title: string
