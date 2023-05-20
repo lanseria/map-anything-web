@@ -44,7 +44,7 @@ export function drawPoint() {
     },
     filter: ['all',
       ['==', ['geometry-type'], 'Point'],
-      // ['!=', ['get', 'icon-image'], 'bicycle1'],
+      ['==', ['get', 'sessionId'], globalSessionId.value],
     ],
   })
 }

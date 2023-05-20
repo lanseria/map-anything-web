@@ -32,7 +32,7 @@ watchEffect(() => {
     </template>
     <a-tab-pane key="1" title="数据导入">
       <div v-show="!tabCollapse" class="mb-5 mx-5 flex">
-        <a-dropdown>
+        <!-- <a-dropdown>
           <TabPanelIconBtn class="mr-5" show-down>
             <template #icon>
               <div class="text-size-40px i-gis-geojson-file" />
@@ -83,7 +83,7 @@ watchEffect(() => {
               加载至Studio
             </a-doption>
           </template>
-        </a-dropdown>
+        </a-dropdown> -->
 
         <TabPanelIconBtn class="mr-5" @click="handleMultipleMarker">
           <template #icon>

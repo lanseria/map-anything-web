@@ -20,9 +20,9 @@ function handleClickReset() {
 function handlePlay(item: FormatVideo) {
   open(`https://www.bilibili.com/video/${item.bvid}`)
 }
-function handleJump() {
-  open('https://graphhopper.com/maps/?point=36.634657%2C101.765811&point=36.280655%2C100.617785&point=36.315161%2C99.686093&point=36.795382%2C99.075579&point=36.933206%2C98.479484&point=37.351506%2C97.375158&point=37.431169%2C95.338793&point=37.367224%2C94.168815&point=39.022607%2C88.163424&point=41.716733%2C86.196723&profile=car&layer=OpenStreetMap')
-}
+// function handleJump() {
+//   open('https://graphhopper.com/maps/?point=36.634657%2C101.765811&point=36.280655%2C100.617785&point=36.315161%2C99.686093&point=36.795382%2C99.075579&point=36.933206%2C98.479484&point=37.351506%2C97.375158&point=37.431169%2C95.338793&point=37.367224%2C94.168815&point=39.022607%2C88.163424&point=41.716733%2C86.196723&profile=car&layer=OpenStreetMap')
+// }
 </script>
 
 <template>
@@ -31,7 +31,7 @@ function handleJump() {
       <div
         class="cursor-pointer flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
         :class="globalVideoId !== -1 ? 'bg-[var(--color-neutral-2)]' : 'bg-[var(--color-neutral-4)]'"
-        @click="handleClickReset()" @dblclick="handleJump()"
+        @click="handleClickReset()"
       >
         总路线
       </div>

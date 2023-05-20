@@ -72,7 +72,7 @@ function handleDelete(node: any) {
     Message.success('已删除')
   }
   else {
-    storeMapDrawFeatures.value = storeMapDrawFeatures.value.filter(item => item.geometry.type === node.key)
+    storeMapDrawFeatures.value = []
     Message.success('已删除')
   }
 }
