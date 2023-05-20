@@ -62,7 +62,7 @@ onMounted(() => {
   map.on('load', () => {
     setTimeout(() => {
       globalIsMapboxLoad.value = true
-    }, 1000)
+    }, 500)
     map!.resize()
   })
   map.on('style.load', () => {

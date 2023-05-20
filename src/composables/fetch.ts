@@ -12,7 +12,7 @@ export function handleComputeDistance() {
   const query = queryString.stringify({
     point: pointStrArr,
   })
-  const url = `https://graphhopper.com/maps/?${query}&profile=mtb&layer=OpenStreetMap`
+  const url = `https://graphhopper.com/maps/?${query}&profile=car&layer=OpenStreetMap`
   open(url)
 }
 

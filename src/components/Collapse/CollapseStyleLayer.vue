@@ -6,6 +6,8 @@ function onChange(val: any) {
   if (style) {
     const url = style.style
     map.setStyle(url)
+    setMapPointImg(globalMapPointUrl.value)
+    globalGeojsonExecute()
   }
 }
 </script>

@@ -1,4 +1,5 @@
 import { reloadMapDrawLayer } from '../draw/mode'
+import { reloadMapGpxLayer } from './mapLayer'
 
 function loadImg(name: string, url: string, sdf = false) {
   const map = window.map
@@ -11,7 +12,8 @@ function loadImg(name: string, url: string, sdf = false) {
     image && map.addImage(name, image, { sdf })
   })
 }
-function setMapPointImg(url: string) {
+export function setMapPointImg(url: string) {
+  console.warn('setMapPointImg')
   const map = window.map
   const name = 'map-point'
   if (map.hasImage(name))
@@ -38,6 +40,9 @@ export function mapLoad() {
   // mapLoadImages()
 
   reloadMapDrawLayer()
+
+  reloadMapGpxLayer('lanseria.cr6cmiy1', '#0074cc')
+  reloadMapGpxLayer('lanseria.1yil1z4p', '#ffdcb6')
   // for (const key in mapCityTypeColorMap.value) {
   //   const color = mapCityTypeColorMap.value[key]
   //   const colorRgb = hexToRgb(color)
