@@ -85,7 +85,9 @@ watch(() => globalMapDataValueUrl.value, async () => {
     globalSessionId.value = globalAllSessions.value[0].id
 })
 export const globalVideoId = ref(-1)
-
+watch(() => globalMapDataValueUrl.value, () => {
+  globalVideoId.value = -1
+})
 watchDebounced([() => globalGeojson.value,
   () => globalSessionId.value,
   () => globalVideoId.value,

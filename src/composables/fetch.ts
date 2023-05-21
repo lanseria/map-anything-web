@@ -3,7 +3,23 @@ import queryString from 'query-string'
 
 export function handleComputeDistance() {
   //
-  const points = globalComputedFilterMapFeatures.value.filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
+  const pointList = globalComputedFilterMapFeatures.value.filter(item => item.geometry.type === 'Point')
+  const lastPointId = pointList[0].id
+  const lastIdx = globalGeojson.value?.features.findIndex(item => item.id === lastPointId)
+  if (!lastIdx) {
+    //
+    console.warn('lastIdx', lastIdx)
+    return
+  }
+  console.warn('lastIdx', lastIdx)
+  console.warn('globalGeojson', globalGeojson.value?.features.length)
+  const startPoint = globalGeojson.value?.features[lastIdx - 1]
+  if (!startPoint) {
+    console.warn('startPoint', startPoint)
+    return
+  }
+  console.warn('startPoint', startPoint)
+  const points = [startPoint, ...globalComputedFilterMapFeatures.value].filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
   // console.log(points)
   const pointStrArr = points.map((item) => {
     return encodeURIComponent(item)
