@@ -100,6 +100,7 @@ declare module 'vue' {
     readonly globalGeojsonExecute: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonExecute']>
     readonly globalGeojsonFeatures: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonFeatures']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
+    readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/global')['globalMapDataExecute']>
     readonly globalMapDataGeojsonUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataGeojsonUrl']>
@@ -466,6 +467,7 @@ declare module 'vue' {
   const globalGeojsonExecute: typeof import('./src/composables/global')['globalGeojsonExecute']
   const globalGeojsonFeatures: typeof import('./src/composables/global')['globalGeojsonFeatures']
   const globalIsMapboxLoad: typeof import('./src/composables/global')['globalIsMapboxLoad']
+  const globalJoinUsModalVisible: typeof import('./src/composables/global')['globalJoinUsModalVisible']
   const globalMapCenter: typeof import('./src/composables/global')['globalMapCenter']
   const globalMapDataExecute: typeof import('./src/composables/global')['globalMapDataExecute']
   const globalMapDataGeojsonUrl: typeof import('./src/composables/global')['globalMapDataGeojsonUrl']
@@ -840,6 +842,7 @@ declare module 'vue' {
     readonly globalGeojsonExecute: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonExecute']>
     readonly globalGeojsonFeatures: UnwrapRef<typeof import('./src/composables/global')['globalGeojsonFeatures']>
     readonly globalIsMapboxLoad: UnwrapRef<typeof import('./src/composables/global')['globalIsMapboxLoad']>
+    readonly globalJoinUsModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalJoinUsModalVisible']>
     readonly globalMapCenter: UnwrapRef<typeof import('./src/composables/global')['globalMapCenter']>
     readonly globalMapDataExecute: UnwrapRef<typeof import('./src/composables/global')['globalMapDataExecute']>
     readonly globalMapDataGeojsonUrl: UnwrapRef<typeof import('./src/composables/global')['globalMapDataGeojsonUrl']>

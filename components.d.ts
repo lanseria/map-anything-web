@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     ModalAbout: typeof import('./src/components/Modal/ModalAbout.vue')['default']
     ModalDataMultipleMarker: typeof import('./src/components/Modal/ModalDataMultipleMarker.vue')['default']
     ModalDrawDataUpload: typeof import('./src/components/Modal/ModalDrawDataUpload.vue')['default']
+    ModalJoinUs: typeof import('./src/components/Modal/ModalJoinUs.vue')['default']
     ModalMapDraw: typeof import('./src/components/Modal/ModalMapDraw.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

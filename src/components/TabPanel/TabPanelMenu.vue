@@ -13,6 +13,9 @@ function handleAbout() {
 function handleRefresh() {
   location.reload()
 }
+function handleJoinUs() {
+  globalJoinUsModalVisible.value = true
+}
 watchEffect(() => {
   if (activeKey.value === '2') {
     handleMapDrawEdit()
@@ -35,7 +38,7 @@ watchEffect(() => {
         {{ tabCollapse ? '展开' : '收起' }}
       </a-button>
     </template>
-    <a-tab-pane key="1" title="数据导入">
+    <a-tab-pane key="1" title="数据编辑">
       <div v-show="!tabCollapse" class="mb-5 mx-5 flex">
         <!-- <a-dropdown>
           <TabPanelIconBtn class="mr-5" show-down>
@@ -109,6 +112,13 @@ watchEffect(() => {
             <div class="text-size-40px i-carbon-mail-reply" />
           </template>
           发送邮件
+        </TabPanelIconBtn>
+
+        <TabPanelIconBtn class="mr-5" @click="handleJoinUs">
+          <template #icon>
+            <div class="text-size-40px i-ant-design-qq-circle-filled" />
+          </template>
+          加入QQ频道
         </TabPanelIconBtn>
       </div>
     </a-tab-pane>

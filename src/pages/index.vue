@@ -43,4 +43,5 @@ function onMoving() {
   <ModalDrawDataUpload />
   <ModalDataMultipleMarker />
   <ModalAbout />
+  <ModalJoinUs />
 </template>
