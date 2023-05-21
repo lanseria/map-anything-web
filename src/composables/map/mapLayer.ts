@@ -64,14 +64,13 @@ async function addLineLayer(id: string, name: string, color: string) {
     if (map.getLayer(lineLayerId))
       map.removeLayer(lineLayerId)
     map.addLayer({
-      'id': lineLayerId,
-      'type': 'line',
-      'source': sourceId,
-      'source-layer': name,
-      'layout': {
+      id: lineLayerId,
+      type: 'line',
+      source: sourceId,
+      layout: {
         'line-cap': i === 3 ? 'butt' : 'square',
       },
-      'paint': {
+      paint: {
         'line-color': i === 3 ? color : 'white',
         'line-width': i === 3 ? 6 : 3,
         'line-offset': x * 3,
@@ -105,18 +104,15 @@ async function addLineLayer(id: string, name: string, color: string) {
   // )
 }
 
-export function reloadMapGpxLayer(id: string, color: string) {
+export function reloadMapGpxLayer(label: string, value: string, color: string) {
   const map = window.map
-  const sourceId = `source-${id}`
+  const sourceId = `source-${label}`
   if (!map.getSource(sourceId)) {
     map.addSource(sourceId, {
-      type: 'vector',
-      // Use any Mapbox-hosted tileset using its tileset id.
-      // Learn more about where to find a tileset id:
-      // https://docs.mapbox.com/help/glossary/tileset-id/
-      url: `mapbox://${id}?fresh=true`,
+      type: 'geojson',
+      data: `${value}/geojson/track.geojson`,
     })
   }
 
-  addLineLayer(id, 'tracks', color)
+  addLineLayer(label, 'tracks', color)
 }

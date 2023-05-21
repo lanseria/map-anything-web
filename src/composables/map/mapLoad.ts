@@ -41,8 +41,10 @@ export function mapLoad() {
 
   reloadMapDrawLayer()
 
-  reloadMapGpxLayer('lanseria.cr6cmiy1', '#0074cc')
-  reloadMapGpxLayer('lanseria.1yil1z4p', '#ffdcb6')
+  MAP_DATA_LIST.forEach((item) => {
+    reloadMapGpxLayer(item.label, item.value, item.color)
+  })
+  // reloadMapGpxLayer('lanseria.1yil1z4p', '#ffdcb6')
   // for (const key in mapCityTypeColorMap.value) {
   //   const color = mapCityTypeColorMap.value[key]
   //   const colorRgb = hexToRgb(color)

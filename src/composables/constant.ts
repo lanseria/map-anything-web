@@ -87,10 +87,12 @@ export const MAP_DATA_LIST = [
     label: '徐云流浪中国',
     value: '/xuyun-data',
     issue: 'incoming+data1355712-xuyun-data-114561-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
+    color: '#0074cc',
   },
   {
     label: '十三要和拳头',
     value: '/shisanyaoshitou-data',
     issue: 'incoming+data1355712-shisanyaoshitou-data-116130-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
+    color: '#ffdcb6',
   },
 ]
