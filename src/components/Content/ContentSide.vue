@@ -24,11 +24,11 @@ import { storeContentSideCollapseActiveKey } from '~/composables'
     </a-collapse-item>
 
     <a-collapse-item key="5" header="编辑视点飞行路线">
-      <!-- <CollapseViewFlight /> -->
+      <CollapseViewFlight />
     </a-collapse-item>
 
     <a-collapse-item key="6" header="历史视点飞行路线">
-      <!-- <CollapseViewFlightHistory /> -->
+      <CollapseViewFlightHistory />
     </a-collapse-item>
   </a-collapse>
 </template>

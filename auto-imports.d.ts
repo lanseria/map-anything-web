@@ -78,6 +78,8 @@ declare module 'vue' {
     readonly createSharedComposable: UnwrapRef<typeof import('@vueuse/core')['createSharedComposable']>
     readonly createTemplatePromise: UnwrapRef<typeof import('@vueuse/core')['createTemplatePromise']>
     readonly createUnrefFn: UnwrapRef<typeof import('@vueuse/core')['createUnrefFn']>
+    readonly createViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['createViewFlightRoute']>
+    readonly currentViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['currentViewFlight']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly debouncedRef: UnwrapRef<typeof import('@vueuse/core')['debouncedRef']>
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
@@ -86,6 +88,7 @@ declare module 'vue' {
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
@@ -120,18 +123,23 @@ declare module 'vue' {
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
     readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
     readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
+    readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
+    readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
+    readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
+    readonly isEditViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
+    readonly mapViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nanoid: UnwrapRef<typeof import('./src/composables/global')['nanoid']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
@@ -445,6 +453,8 @@ declare module 'vue' {
   const createSharedComposable: typeof import('@vueuse/core')['createSharedComposable']
   const createTemplatePromise: typeof import('@vueuse/core')['createTemplatePromise']
   const createUnrefFn: typeof import('@vueuse/core')['createUnrefFn']
+  const createViewFlightRoute: typeof import('./src/composables/map/mapViewFlight')['createViewFlightRoute']
+  const currentViewFlight: typeof import('./src/composables/map/mapViewFlight')['currentViewFlight']
   const customRef: typeof import('vue')['customRef']
   const debouncedRef: typeof import('@vueuse/core')['debouncedRef']
   const debouncedWatch: typeof import('@vueuse/core')['debouncedWatch']
@@ -453,6 +463,7 @@ declare module 'vue' {
   const drawPoint: typeof import('./src/composables/map/mapLayer')['drawPoint']
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
+  const exitCreateViewFlightRoute: typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
@@ -487,18 +498,23 @@ declare module 'vue' {
   const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
   const handleMapExitDrawEdit: typeof import('./src/composables/global')['handleMapExitDrawEdit']
   const handleMultipleMarker: typeof import('./src/composables/fetch')['handleMultipleMarker']
+  const handlePushViewFlightChildren: typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']
+  const handlePushViewFlightList: typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']
   const handleSelectGlobalDrawMode: typeof import('./src/composables/global')['handleSelectGlobalDrawMode']
   const handleSendIssueUseEmail: typeof import('./src/composables/fetch')['handleSendIssueUseEmail']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
+  const initViewFlightForm: typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']
   const inject: typeof import('vue')['inject']
   const isDark: typeof import('./src/composables/dark')['isDark']
   const isDefined: typeof import('@vueuse/core')['isDefined']
+  const isEditViewFlight: typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const mapLoad: typeof import('./src/composables/map/mapLoad')['mapLoad']
+  const mapViewFlightList: typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']
   const markRaw: typeof import('vue')['markRaw']
   const nanoid: typeof import('./src/composables/global')['nanoid']
   const nextTick: typeof import('vue')['nextTick']
@@ -820,6 +836,8 @@ declare module 'vue' {
     readonly createSharedComposable: UnwrapRef<typeof import('@vueuse/core')['createSharedComposable']>
     readonly createTemplatePromise: UnwrapRef<typeof import('@vueuse/core')['createTemplatePromise']>
     readonly createUnrefFn: UnwrapRef<typeof import('@vueuse/core')['createUnrefFn']>
+    readonly createViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['createViewFlightRoute']>
+    readonly currentViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['currentViewFlight']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly debouncedRef: UnwrapRef<typeof import('@vueuse/core')['debouncedRef']>
     readonly debouncedWatch: UnwrapRef<typeof import('@vueuse/core')['debouncedWatch']>
@@ -828,6 +846,7 @@ declare module 'vue' {
     readonly drawPoint: UnwrapRef<typeof import('./src/composables/map/mapLayer')['drawPoint']>
     readonly eagerComputed: UnwrapRef<typeof import('@vueuse/core')['eagerComputed']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly exitCreateViewFlightRoute: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['exitCreateViewFlightRoute']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
@@ -862,18 +881,23 @@ declare module 'vue' {
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
     readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
     readonly handleMultipleMarker: UnwrapRef<typeof import('./src/composables/fetch')['handleMultipleMarker']>
+    readonly handlePushViewFlightChildren: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightChildren']>
+    readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
+    readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isDark: UnwrapRef<typeof import('./src/composables/dark')['isDark']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
+    readonly isEditViewFlight: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['isEditViewFlight']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly mapLoad: UnwrapRef<typeof import('./src/composables/map/mapLoad')['mapLoad']>
+    readonly mapViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['mapViewFlightList']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nanoid: UnwrapRef<typeof import('./src/composables/global')['nanoid']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>

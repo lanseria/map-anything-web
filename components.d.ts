@@ -13,6 +13,8 @@ declare module '@vue/runtime-core' {
     CollapeFilter: typeof import('./src/components/Collapse/CollapeFilter.vue')['default']
     CollapseDrawLayer: typeof import('./src/components/Collapse/CollapseDrawLayer.vue')['default']
     CollapseStyleLayer: typeof import('./src/components/Collapse/CollapseStyleLayer.vue')['default']
+    CollapseViewFlight: typeof import('./src/components/Collapse/CollapseViewFlight.vue')['default']
+    CollapseViewFlightHistory: typeof import('./src/components/Collapse/CollapseViewFlightHistory.vue')['default']
     ContentMap: typeof import('./src/components/Content/ContentMap.vue')['default']
     ContentSide: typeof import('./src/components/Content/ContentSide.vue')['default']
     Editor: typeof import('./src/components/Editor.vue')['default']
@@ -27,5 +29,7 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     TabPanelIconBtn: typeof import('./src/components/TabPanel/TabPanelIconBtn.vue')['default']
     TabPanelMenu: typeof import('./src/components/TabPanel/TabPanelMenu.vue')['default']
+    ViewFlightItem: typeof import('./src/components/ViewFlight/ViewFlightItem.vue')['default']
+    ViewFlightPointCard: typeof import('./src/components/ViewFlight/ViewFlightPointCard.vue')['default']
   }
 }
