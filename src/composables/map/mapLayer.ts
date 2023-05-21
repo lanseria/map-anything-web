@@ -114,7 +114,7 @@ export function reloadMapGpxLayer(id: string, color: string) {
       // Use any Mapbox-hosted tileset using its tileset id.
       // Learn more about where to find a tileset id:
       // https://docs.mapbox.com/help/glossary/tileset-id/
-      url: `mapbox://${id}`,
+      url: `mapbox://${id}?fresh=true`,
     })
   }
 
