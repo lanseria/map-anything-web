@@ -6,20 +6,29 @@ export function handleComputeDistance() {
   const pointList = globalComputedFilterMapFeatures.value.filter(item => item.geometry.type === 'Point')
   const lastPointId = pointList[0].id
   const lastIdx = globalGeojson.value?.features.findIndex(item => item.id === lastPointId)
-  if (!lastIdx) {
-    //
+
+  let points: string[] = []
+  // 某个视频
+  if (globalVideoId.value !== -1) {
+    if (!lastIdx) {
+      //
+      console.warn('lastIdx', lastIdx)
+      return
+    }
     console.warn('lastIdx', lastIdx)
-    return
-  }
-  console.warn('lastIdx', lastIdx)
-  console.warn('globalGeojson', globalGeojson.value?.features.length)
-  const startPoint = globalGeojson.value?.features[lastIdx - 1]
-  if (!startPoint) {
+    console.warn('globalGeojson', globalGeojson.value?.features.length)
+    const startPoint = globalGeojson.value?.features[lastIdx - 1]
+    if (!startPoint) {
+      console.warn('startPoint', startPoint)
+      return
+    }
     console.warn('startPoint', startPoint)
-    return
+    points = [startPoint, ...globalComputedFilterMapFeatures.value].filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
   }
-  console.warn('startPoint', startPoint)
-  const points = [startPoint, ...globalComputedFilterMapFeatures.value].filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
+  else {
+    // 全部视频
+    points = globalGeojson.value!.features.map(item => item.geometry.coordinates.reverse().join())
+  }
   // console.log(points)
   const pointStrArr = points.map((item) => {
     return encodeURIComponent(item)
