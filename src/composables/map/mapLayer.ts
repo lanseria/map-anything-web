@@ -54,57 +54,38 @@ export function reloadDataSourceLayer() {
   drawPoint()
 }
 
-async function addLineLayer(id: string, name: string, color: string) {
+export async function updateLineLayer() {
   const map = window.map
-  const sourceId = `source-${id}`
-  const layerId = `layer-${id}`
   const arr = [-1, 0, 1, 0]
-  arr.forEach((x, i) => {
-    const lineLayerId = `${LINE_PREFIX}${layerId}-${i}`
-    if (map.getLayer(lineLayerId))
-      map.removeLayer(lineLayerId)
-    map.addLayer({
-      id: lineLayerId,
-      type: 'line',
-      source: sourceId,
-      layout: {
-        'line-cap': i === 3 ? 'butt' : 'square',
-      },
-      paint: {
-        'line-color': i === 3 ? color : 'white',
-        'line-width': i === 3 ? 6 : 3,
-        'line-offset': x * 3,
-      },
+  MAP_DATA_LIST.forEach((item) => {
+    // console.warn(storeMapImportLayerCheckedKeys.value)
+    const visibility = storeMapImportLayerCheckedKeys.value.includes(item.label)
+    // console.warn('visibility', visibility)
+    const sourceId = `source-${item.label}`
+    const layerId = `layer-${item.label}`
+    arr.forEach((x, i) => {
+      const lineLayerId = `${LINE_PREFIX}${layerId}-${i}`
+      if (map.getLayer(lineLayerId))
+        map.removeLayer(lineLayerId)
+      map.addLayer({
+        id: lineLayerId,
+        type: 'line',
+        source: sourceId,
+        layout: {
+          'line-cap': i === 3 ? 'butt' : 'square',
+          'visibility': visibility ? 'visible' : 'none',
+        },
+        paint: {
+          'line-color': i === 3 ? item.color : 'white',
+          'line-width': i === 3 ? 6 : 3,
+          'line-offset': x * 3,
+        },
+      })
     })
   })
-  // map.addLayer(
-  //   {
-  //     'id': lineLayerId,
-  //     'type': 'line',
-  //     'source': sourceId,
-  //     'source-layer': name,
-  //     'filter': ['all', ['match', ['geometry-type'], ['LineString'], !0, !1]],
-  //     'layout': {
-  //       'line-join': 'round',
-  //       'line-cap': 'round',
-  //       'visibility': 'visible',
-  //     },
-  //     'paint': {
-  //       'line-color': color,
-  //       'line-width': 5,
-  //       'line-gradient': [
-  //         'interpolate',
-  //         ['linear'],
-  //         ['line-progress'],
-  //         0, 'red',
-  //         1, 'blue',
-  //       ],
-  //     },
-  //   },
-  // )
 }
 
-export function reloadMapGpxLayer(label: string, value: string, color: string) {
+export function reloadMapGpxLayer(label: string, value: string) {
   const map = window.map
   const sourceId = `source-${label}`
   if (!map.getSource(sourceId)) {
@@ -113,6 +94,4 @@ export function reloadMapGpxLayer(label: string, value: string, color: string) {
       data: `${value}/geojson/track.geojson`,
     })
   }
-
-  addLineLayer(label, 'tracks', color)
 }

@@ -20,7 +20,7 @@ import { storeContentSideCollapseActiveKey } from '~/composables'
     </a-collapse-item>
 
     <a-collapse-item key="4" header="导入图层">
-      <!-- <CollapseImportLayer /> -->
+      <CollapseImportLayer />
     </a-collapse-item>
 
     <a-collapse-item key="5" header="编辑视点飞行路线">

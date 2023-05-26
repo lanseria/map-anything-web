@@ -180,6 +180,7 @@ declare global {
   const storeContentSideCollapsed: typeof import('./src/composables/store')['storeContentSideCollapsed']
   const storeMapDrawFeatures: typeof import('./src/composables/store')['storeMapDrawFeatures']
   const storeMapDrawLayerCheckedKeys: typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']
+  const storeMapImportLayerCheckedKeys: typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
@@ -202,6 +203,7 @@ declare global {
   const unref: typeof import('vue')['unref']
   const unrefElement: typeof import('@vueuse/core')['unrefElement']
   const until: typeof import('@vueuse/core')['until']
+  const updateLineLayer: typeof import('./src/composables/map/mapLayer')['updateLineLayer']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
   const useAnimate: typeof import('@vueuse/core')['useAnimate']
   const useArrayDifference: typeof import('@vueuse/core')['useArrayDifference']
@@ -564,6 +566,7 @@ declare module 'vue' {
     readonly storeContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapsed']>
     readonly storeMapDrawFeatures: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawFeatures']>
     readonly storeMapDrawLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']>
+    readonly storeMapImportLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
@@ -586,6 +589,7 @@ declare module 'vue' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
+    readonly updateLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateLineLayer']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
     readonly useArrayDifference: UnwrapRef<typeof import('@vueuse/core')['useArrayDifference']>
@@ -942,6 +946,7 @@ declare module '@vue/runtime-core' {
     readonly storeContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['storeContentSideCollapsed']>
     readonly storeMapDrawFeatures: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawFeatures']>
     readonly storeMapDrawLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']>
+    readonly storeMapImportLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
@@ -964,6 +969,7 @@ declare module '@vue/runtime-core' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
+    readonly updateLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateLineLayer']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
     readonly useArrayDifference: UnwrapRef<typeof import('@vueuse/core')['useArrayDifference']>

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { Icon, Message } from '@arco-design/web-vue'
-import { IconLayers } from '@arco-design/web-vue/es/icon'
 import { storeMapDrawLayerCheckedKeys } from '~/composables'
 
 const IconFont = Icon.addFromIconFontCn({ src: DEFAULT_ICONFONT_CN_URL })
@@ -26,19 +25,16 @@ const treeData = computed<any>(() => {
     .map(item => ({
       title: item.properties!.description || item.properties!.id,
       key: item.properties!.id,
-      icon: () => h(IconFont, { type: 'icon-dian' }),
       leaf: true,
     }))
   const filterLineStrings = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'LineString' && item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value).map(item => ({
     title: item.properties!.description || item.properties!.id,
     key: item.properties!.id,
-    icon: () => h(IconFont, { type: 'icon-xian' }),
     leaf: true,
   }))
   const filterPolygons = storeMapDrawFeatures.value.filter(item => item.geometry.type === 'Polygon' && item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value).map(item => ({
     title: item.properties!.description || item.properties!.id,
     key: item.properties!.id,
-    icon: () => h(IconFont, { type: 'icon-mian' }),
     leaf: true,
   }))
   return [
@@ -46,21 +42,21 @@ const treeData = computed<any>(() => {
       title: '点',
       key: 'Point',
       leaf: false,
-      icon: () => h(IconLayers),
+      icon: () => h(IconFont, { type: 'icon-dian' }),
       children: filterPoints,
     },
     {
       title: '线',
       key: 'LineString',
       leaf: false,
-      icon: () => h(IconLayers),
+      icon: () => h(IconFont, { type: 'icon-xian' }),
       children: filterLineStrings,
     },
     {
       title: '面',
       key: 'Polygon',
       leaf: false,
-      icon: () => h(IconLayers),
+      icon: () => h(IconFont, { type: 'icon-mian' }),
       children: filterPolygons,
     },
   ]

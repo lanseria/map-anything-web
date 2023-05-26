@@ -19,3 +19,12 @@ watchDebounced([() => storeMapDrawFeatures.value, () => storeMapDrawLayerChecked
     reloadMapDrawLayer()
   }
 }, { debounce: 300, maxWait: 600, immediate: true })
+
+export const storeMapImportLayerCheckedKeys
+= useStorage<string[]>('storeMapImportLayerCheckedKeys', [...MAP_DATA_LIST.map(it => it.label)])
+
+watchDebounced([() => globalIsMapboxLoad.value, () => storeMapImportLayerCheckedKeys.value], () => {
+  console.warn('storeMapImportLayerCheckedKeys changed')
+  if (globalIsMapboxLoad.value)
+    updateLineLayer()
+}, { debounce: 300, maxWait: 600, immediate: true })

@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     CollapeData: typeof import('./src/components/Collapse/CollapeData.vue')['default']
     CollapeFilter: typeof import('./src/components/Collapse/CollapeFilter.vue')['default']
     CollapseDrawLayer: typeof import('./src/components/Collapse/CollapseDrawLayer.vue')['default']
+    CollapseImportLayer: typeof import('./src/components/Collapse/CollapseImportLayer.vue')['default']
     CollapseStyleLayer: typeof import('./src/components/Collapse/CollapseStyleLayer.vue')['default']
     CollapseViewFlight: typeof import('./src/components/Collapse/CollapseViewFlight.vue')['default']
     CollapseViewFlightHistory: typeof import('./src/components/Collapse/CollapseViewFlightHistory.vue')['default']

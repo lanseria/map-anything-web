@@ -42,7 +42,11 @@ export function mapLoad() {
   reloadMapDrawLayer()
 
   MAP_DATA_LIST.forEach((item) => {
-    reloadMapGpxLayer(item.label, item.value, item.color)
+    reloadMapGpxLayer(item.label, item.value)
+    // console.warn('mapLoad')
+    setTimeout(() => {
+      updateLineLayer()
+    }, 1000)
   })
   // reloadMapGpxLayer('lanseria.1yil1z4p', '#ffdcb6')
   // for (const key in mapCityTypeColorMap.value) {
