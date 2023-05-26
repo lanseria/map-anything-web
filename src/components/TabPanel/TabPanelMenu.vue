@@ -99,12 +99,33 @@ watchEffect(() => {
           </template>
           查看点位
         </TabPanelIconBtn>
-        <TabPanelIconBtn class="mr-5" @click="handleComputeDistance">
-          <template #icon>
-            <div class="text-size-40px i-mdi-map-marker-distance" />
+        <a-dropdown>
+          <TabPanelIconBtn class="mr-5" show-down>
+            <template #icon>
+              <div class="text-size-40px i-mdi-map-marker-distance" />
+            </template>
+            计算路程
+          </TabPanelIconBtn>
+
+          <template #content>
+            <a-doption @click="handleComputeDistance">
+              计算路程(仅导入中的数据)
+            </a-doption>
+            <a-doption @click="handleComputeDistanceInEdit">
+              计算路程(包含编辑中的数据)
+            </a-doption>
+            <a-doption @click="handleExportComputeDistance">
+              导出路程(geojson)
+            </a-doption>
           </template>
-          计算路程
-        </TabPanelIconBtn>
+        </a-dropdown>
+
+        <!-- <TabPanelIconBtn class="mr-5" @click="handleShowDistance">
+          <template #icon>
+            <div class="text-size-40px i-mdi-vector-line" />
+          </template>
+          查看路程
+        </TabPanelIconBtn> -->
 
         <TabPanelIconBtn class="mr-5" @click="handleSendIssueUseEmail">
           <template #icon>

@@ -1,3 +1,6 @@
+import type { Position } from '@turf/turf'
+import { featureCollection } from '@turf/turf'
+
 export function addSource() {
   const map = window.map
   const source: any = map.getSource(MAP_DATA_SOURCE)
@@ -94,4 +97,39 @@ export function reloadMapGpxLayer(label: string, value: string) {
       data: `${value}/geojson/track.geojson`,
     })
   }
+}
+
+export function updateDistanceSourceLayer(data: Position[]) {
+  const geojsonObj = featureCollection([turf.lineString(data)])
+  const map = window.map
+  const sourceId = 'source-distance'
+  const lineLayerId = 'layer-distance'
+  if (!map.getSource(sourceId)) {
+    map.addSource(sourceId, {
+      type: 'geojson',
+      data: geojsonObj,
+    })
+  }
+  else {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    map.getSource(sourceId).setData(geojsonObj)
+  }
+  if (map.getLayer(lineLayerId))
+    map.removeLayer(lineLayerId)
+  map.addLayer({
+    id: lineLayerId,
+    type: 'line',
+    source: sourceId,
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round',
+    },
+    paint: {
+      'line-color': '#888',
+      'line-width': 3,
+      'line-opacity': 0.8,
+      'line-dasharray': [1, 2], // 设置虚线样式，第一个值表示实线长度，第二个值表示虚线长度
+    },
+  })
 }

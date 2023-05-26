@@ -108,7 +108,9 @@ declare global {
   const globalVideoId: typeof import('./src/composables/global')['globalVideoId']
   const h: typeof import('vue')['h']
   const handleComputeDistance: typeof import('./src/composables/fetch')['handleComputeDistance']
+  const handleComputeDistanceInEdit: typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']
   const handleContentSideCollapsed: typeof import('./src/composables/store')['handleContentSideCollapsed']
+  const handleExportComputeDistance: typeof import('./src/composables/fetch')['handleExportComputeDistance']
   const handleMapDrawEdit: typeof import('./src/composables/global')['handleMapDrawEdit']
   const handleMapDrawMove: typeof import('./src/composables/global')['handleMapDrawMove']
   const handleMapExitDrawEdit: typeof import('./src/composables/global')['handleMapExitDrawEdit']
@@ -117,6 +119,7 @@ declare global {
   const handlePushViewFlightList: typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']
   const handleSelectGlobalDrawMode: typeof import('./src/composables/global')['handleSelectGlobalDrawMode']
   const handleSendIssueUseEmail: typeof import('./src/composables/fetch')['handleSendIssueUseEmail']
+  const handleShowDistance: typeof import('./src/composables/fetch')['handleShowDistance']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const initViewFlightForm: typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']
   const inject: typeof import('vue')['inject']
@@ -203,6 +206,7 @@ declare global {
   const unref: typeof import('vue')['unref']
   const unrefElement: typeof import('@vueuse/core')['unrefElement']
   const until: typeof import('@vueuse/core')['until']
+  const updateDistanceSourceLayer: typeof import('./src/composables/map/mapLayer')['updateDistanceSourceLayer']
   const updateLineLayer: typeof import('./src/composables/map/mapLayer')['updateLineLayer']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
   const useAnimate: typeof import('@vueuse/core')['useAnimate']
@@ -494,7 +498,9 @@ declare module 'vue' {
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
+    readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>
     readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
+    readonly handleExportComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleExportComputeDistance']>
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
     readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
@@ -503,6 +509,7 @@ declare module 'vue' {
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
+    readonly handleShowDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleShowDistance']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -589,6 +596,7 @@ declare module 'vue' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
+    readonly updateDistanceSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateDistanceSourceLayer']>
     readonly updateLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateLineLayer']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
@@ -874,7 +882,9 @@ declare module '@vue/runtime-core' {
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/global')['globalVideoId']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
+    readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>
     readonly handleContentSideCollapsed: UnwrapRef<typeof import('./src/composables/store')['handleContentSideCollapsed']>
+    readonly handleExportComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleExportComputeDistance']>
     readonly handleMapDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawEdit']>
     readonly handleMapDrawMove: UnwrapRef<typeof import('./src/composables/global')['handleMapDrawMove']>
     readonly handleMapExitDrawEdit: UnwrapRef<typeof import('./src/composables/global')['handleMapExitDrawEdit']>
@@ -883,6 +893,7 @@ declare module '@vue/runtime-core' {
     readonly handlePushViewFlightList: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['handlePushViewFlightList']>
     readonly handleSelectGlobalDrawMode: UnwrapRef<typeof import('./src/composables/global')['handleSelectGlobalDrawMode']>
     readonly handleSendIssueUseEmail: UnwrapRef<typeof import('./src/composables/fetch')['handleSendIssueUseEmail']>
+    readonly handleShowDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleShowDistance']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly initViewFlightForm: UnwrapRef<typeof import('./src/composables/map/mapViewFlight')['initViewFlightForm']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -969,6 +980,7 @@ declare module '@vue/runtime-core' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly unrefElement: UnwrapRef<typeof import('@vueuse/core')['unrefElement']>
     readonly until: UnwrapRef<typeof import('@vueuse/core')['until']>
+    readonly updateDistanceSourceLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateDistanceSourceLayer']>
     readonly updateLineLayer: UnwrapRef<typeof import('./src/composables/map/mapLayer')['updateLineLayer']>
     readonly useActiveElement: UnwrapRef<typeof import('@vueuse/core')['useActiveElement']>
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>

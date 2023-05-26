@@ -101,12 +101,10 @@ watchDebounced([() => globalGeojson.value,
 export const globalComputedFilterMapFeatures = computed(() => {
   return ((globalGeojson.value?.features || []) as MyFeature[]).filter(
     (item) => {
-      if (globalSessionId.value === -1)
+      if (item.properties?.sessionId === globalSessionId.value)
         return true
-      else if (item.properties?.sessionId === globalSessionId.value)
-        return true
-      else
-        return false
+
+      else return false
     },
   ).filter((item) => {
     if (globalVideoId.value === -1)
@@ -117,3 +115,6 @@ export const globalComputedFilterMapFeatures = computed(() => {
       return false
   })
 })
+// watchEffect(() => {
+//   console.log(globalComputedFilterMapFeatures.value)
+// })

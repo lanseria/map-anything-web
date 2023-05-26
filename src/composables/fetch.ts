@@ -1,35 +1,44 @@
 import { Message } from '@arco-design/web-vue'
 import queryString from 'query-string'
 
-export function handleComputeDistance() {
+export function handleExportComputeDistance() {
   //
-  const pointList = globalComputedFilterMapFeatures.value.filter(item => item.geometry.type === 'Point')
-  const lastPointId = pointList[0].id
-  const lastIdx = globalGeojson.value?.features.findIndex(item => item.id === lastPointId)
+}
 
-  let points: string[] = []
-  // 某个视频
-  if (globalVideoId.value !== -1) {
-    if (!lastIdx) {
-      //
-      console.warn('lastIdx', lastIdx)
-      return
-    }
-    console.warn('lastIdx', lastIdx)
-    console.warn('globalGeojson', globalGeojson.value?.features.length)
-    const startPoint = globalGeojson.value?.features[lastIdx - 1]
-    if (!startPoint) {
-      console.warn('startPoint', startPoint)
-      return
-    }
-    console.warn('startPoint', startPoint)
-    points = [startPoint, ...globalComputedFilterMapFeatures.value].filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
+export function handleComputeDistanceInEdit() {
+  //
+  if (globalVideoId.value === -1) {
+    Message.warning('仅支持单视频')
   }
   else {
-    // 全部视频
-    points = globalGeojson.value!.features.map(item => item.geometry.coordinates.reverse().join())
+    const points = _checkPoint(true)
+    if (!points)
+      return
+    const pointsStr = points.join(';')
+    const { data, onFetchResponse } = useFetch(`http://router.project-osrm.org/route/v1/driving/${pointsStr}?overview=full&geometries=geojson`).get().json()
+    onFetchResponse(() => {
+      updateDistanceSourceLayer(data.value.routes[0].geometry.coordinates)
+    })
   }
-  // console.log(points)
+}
+
+export function handleComputeDistance() {
+  const points = _checkPoint()
+  if (!points)
+    return
+  const pointsStr = points.join(';')
+  const { data, onFetchResponse } = useFetch(`http://router.project-osrm.org/route/v1/driving/${pointsStr}?overview=full&geometries=geojson`).get().json()
+  onFetchResponse(() => {
+    updateDistanceSourceLayer(data.value.routes[0].geometry.coordinates)
+  })
+}
+
+export function handleShowDistance() {
+  //
+  const points = _checkPoint()
+  if (!points)
+    return
+
   const pointStrArr = points.map((item) => {
     return encodeURIComponent(item)
   })
@@ -39,6 +48,61 @@ export function handleComputeDistance() {
   })
   const url = `https://graphhopper.com/maps/?${query}&profile=car&layer=OpenStreetMap`
   open(url)
+}
+
+function _checkPoint(ignore = false) {
+  const pointList = globalComputedFilterMapFeatures.value.filter(item => item.geometry.type === 'Point')
+  if (!ignore && pointList.length === 0) {
+    Message.warning('没有路线, 无法计算距离')
+    return false
+  }
+
+  let points: string[] = []
+  if (ignore) {
+    const first = globalGeojson.value?.features[globalGeojson.value?.features.length - 1]
+    // console.log(first)
+    if (!first) {
+      Message.warning('起始点位不存在')
+      return
+    }
+    const mapDrawPoints = storeMapDrawFeatures.value
+      .filter(item => item.geometry.type === 'Point')
+      .filter((item) => {
+        if (item.properties?.videoId === globalVideoId.value)
+          return true
+        else
+          return false
+      })
+    points = [first.geometry.coordinates.map(i => (+i).toFixed(6)).join(), ...mapDrawPoints.map(item => item.geometry.coordinates.map(i => (+i).toFixed(6)).join())]
+    return points
+  }
+  else {
+    const lastPointId = pointList[0].id
+    const lastIdx = globalGeojson.value?.features.findIndex(item => item.id === lastPointId)
+
+    // 某个视频
+    if (globalVideoId.value !== -1) {
+      if (!lastIdx) {
+      //
+        console.warn('lastIdx', lastIdx)
+        return
+      }
+      console.warn('lastIdx', lastIdx)
+      console.warn('globalGeojson', globalGeojson.value?.features.length)
+      const startPoint = globalGeojson.value?.features[lastIdx - 1]
+      if (!startPoint) {
+        console.warn('startPoint', startPoint)
+        return
+      }
+      console.warn('startPoint', startPoint)
+      points = [startPoint, ...globalComputedFilterMapFeatures.value].filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
+    }
+    else {
+    // 全部视频
+      points = globalGeojson.value!.features.map(item => item.geometry.coordinates.reverse().join())
+    }
+    return points
+  }
 }
 
 export function handleSendIssueUseEmail() {
