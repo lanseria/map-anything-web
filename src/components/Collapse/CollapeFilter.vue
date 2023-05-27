@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { globalMapDataValue, globalSessionId } from '~/composables'
+import { globalSessionId, storeMapDataValue } from '~/composables'
 
 // function handleClick(item: any) {
 //   globalSessionId.value = item.id
@@ -18,7 +18,7 @@ const sessionOptions = computed(() => {
   <a-scrollbar style="max-height:400px;overflow: auto;">
     <a-form :model="{}" layout="vertical">
       <a-form-item label="数据源">
-        <a-select v-model:model-value="globalMapDataValue" :options="MAP_DATA_LIST" />
+        <a-select v-model:model-value="storeMapDataValue" :options="MAP_DATA_LIST" />
       </a-form-item>
       <a-form-item label="路线">
         <a-select v-model:model-value="globalSessionId" :options="sessionOptions" />
@@ -31,7 +31,7 @@ const sessionOptions = computed(() => {
         :class="globalSessionId !== item.id ? 'bg-[var(--color-neutral-2)] cursor-pointer' : 'bg-blue-500 text-white'"
         @click="handleClick(item)"
       >
-        <img class="w-50px h-50px object-cover rounded-lg" :src="`${globalMapDataValue}/img/${item.cover}`">
+        <img class="w-50px h-50px object-cover rounded-lg" :src="`${storeMapDataValue}/img/${item.cover}`">
         <div class="ml-10px flex flex-col">
           <div>{{ item.title }}</div>
           <div title="查看数">

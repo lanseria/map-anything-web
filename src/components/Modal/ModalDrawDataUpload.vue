@@ -6,7 +6,7 @@ import Editor from '../Editor.vue'
 const filterMapDrawFeatures = ref('')
 const { copy, copied, isSupported } = useClipboard()
 function handleOk() {
-  const mapData = MAP_DATA_LIST.find(item => item.value === globalMapDataValue.value)
+  const mapData = MAP_DATA_LIST.find(item => item.value === storeMapDataValue.value)
   const sessionIdx = globalAllSessions.value!.findIndex(item => item.id === globalSessionId.value)
   const sessionName = globalAllSessions.value![sessionIdx].title
   const videoIdx = globalAllSessions.value![sessionIdx].videoList.findIndex(item => item.aid === globalVideoId.value)

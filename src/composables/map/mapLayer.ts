@@ -1,5 +1,4 @@
 import type { Position } from '@turf/turf'
-import { featureCollection } from '@turf/turf'
 
 export function addSource() {
   const map = window.map
@@ -100,7 +99,7 @@ export function reloadMapGpxLayer(label: string, value: string) {
 }
 
 export function updateDistanceSourceLayer(data: Position[]) {
-  const geojsonObj = featureCollection([turf.lineString(data)])
+  const geojsonObj = turf.featureCollection([turf.lineString(data)])
   const map = window.map
   const sourceId = 'source-distance'
   const lineLayerId = 'layer-distance'

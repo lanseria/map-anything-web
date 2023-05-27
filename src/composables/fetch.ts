@@ -2,7 +2,28 @@ import { Message } from '@arco-design/web-vue'
 import queryString from 'query-string'
 
 export function handleExportComputeDistance() {
-  //
+  const { data, onFetchResponse } = useFetch(`${storeMapDataValue.value}/geojson/track.geojson`).get().json()
+  onFetchResponse(() => {
+    // console.log(data.value.features)
+    // console.log(turf.lineString(globalTempRouteMapCoordinates.value))
+    let geojsonObj: any = {}
+    if (globalVideoId.value === -1) {
+      console.log(globalTempRouteMapCoordinates.value)
+      geojsonObj = turf.featureCollection([turf.lineString(globalTempRouteMapCoordinates.value)])
+    }
+    else { geojsonObj = turf.featureCollection([turf.lineString(globalTempRouteMapCoordinates.value), ...data.value.features]) }
+    console.log(geojsonObj)
+    const combine = turf.combine(geojsonObj as any)
+    // console.log(combine)
+    combine.features[0].properties.collectedProperties = []
+    const blob = new Blob([JSON.stringify(combine)], { type: 'text/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'track.geojson'
+    document.body.appendChild(a)
+    a.click()
+  })
 }
 
 export function handleComputeDistanceInEdit() {
@@ -18,6 +39,7 @@ export function handleComputeDistanceInEdit() {
     const { data, onFetchResponse } = useFetch(`http://router.project-osrm.org/route/v1/driving/${pointsStr}?overview=full&geometries=geojson`).get().json()
     onFetchResponse(() => {
       updateDistanceSourceLayer(data.value.routes[0].geometry.coordinates)
+      globalTempRouteMapCoordinates.value = data.value.routes[0].geometry.coordinates
     })
   }
 }
@@ -30,6 +52,7 @@ export function handleComputeDistance() {
   const { data, onFetchResponse } = useFetch(`http://router.project-osrm.org/route/v1/driving/${pointsStr}?overview=full&geometries=geojson`).get().json()
   onFetchResponse(() => {
     updateDistanceSourceLayer(data.value.routes[0].geometry.coordinates)
+    globalTempRouteMapCoordinates.value = data.value.routes[0].geometry.coordinates
   })
 }
 
@@ -95,18 +118,18 @@ function _checkPoint(ignore = false) {
         return
       }
       console.warn('startPoint', startPoint)
-      points = [startPoint, ...globalComputedFilterMapFeatures.value].filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.reverse().join())
+      points = [startPoint, ...globalComputedFilterMapFeatures.value].filter(item => item.geometry.type === 'Point').map(item => item.geometry.coordinates.map(i => (+i).toFixed(6)).join())
     }
     else {
     // 全部视频
-      points = globalGeojson.value!.features.map(item => item.geometry.coordinates.reverse().join())
+      points = globalGeojson.value!.features.map(item => item.geometry.coordinates.map(i => (+i).toFixed(6)).join())
     }
     return points
   }
 }
 
 export function handleSendIssueUseEmail() {
-  const mapData = MAP_DATA_LIST.find(item => item.value === globalMapDataValue.value)
+  const mapData = MAP_DATA_LIST.find(item => item.value === storeMapDataValue.value)
   const filterMapDrawFeatures = storeMapDrawFeatures.value.filter(item => item.properties?.sessionId === globalSessionId.value && item.properties?.videoId === globalVideoId.value)
   if (!mapData) {
     Message.warning('未选择数据,无法发送邮件')
