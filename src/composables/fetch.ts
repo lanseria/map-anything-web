@@ -8,11 +8,11 @@ export function handleExportComputeDistance() {
     // console.log(turf.lineString(globalTempRouteMapCoordinates.value))
     let geojsonObj: any = {}
     if (globalVideoId.value === -1) {
-      console.log(globalTempRouteMapCoordinates.value)
+      // console.log(globalTempRouteMapCoordinates.value)
       geojsonObj = turf.featureCollection([turf.lineString(globalTempRouteMapCoordinates.value)])
     }
     else { geojsonObj = turf.featureCollection([turf.lineString(globalTempRouteMapCoordinates.value), ...data.value.features]) }
-    console.log(geojsonObj)
+    // console.log(geojsonObj)
     const combine = turf.combine(geojsonObj as any)
     // console.log(combine)
     combine.features[0].properties.collectedProperties = []
