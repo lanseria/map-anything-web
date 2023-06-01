@@ -93,7 +93,7 @@ export function reloadMapGpxLayer(label: string, value: string) {
   if (!map.getSource(sourceId)) {
     map.addSource(sourceId, {
       type: 'geojson',
-      data: `${value}/geojson/track.geojson`,
+      data: `${value}/geojson/allLine.geojson`,
     })
   }
 }
