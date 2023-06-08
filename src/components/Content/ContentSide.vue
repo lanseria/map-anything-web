@@ -19,15 +19,19 @@ import { storeContentSideCollapseActiveKey } from '~/composables'
       <CollapseDrawLayer />
     </a-collapse-item>
 
-    <a-collapse-item key="4" header="导入图层">
-      <CollapseImportLayer />
+    <a-collapse-item key="4" header="公共图层">
+      <CollapseCommonLayer />
     </a-collapse-item>
 
-    <a-collapse-item key="5" header="编辑视点飞行路线">
+    <a-collapse-item key="5" header="导入图层">
+      <!-- <CollapseImportLayer /> -->
+    </a-collapse-item>
+
+    <a-collapse-item key="6" header="编辑视点飞行路线">
       <CollapseViewFlight />
     </a-collapse-item>
 
-    <a-collapse-item key="6" header="历史视点飞行路线">
+    <a-collapse-item key="7" header="历史视点飞行路线">
       <CollapseViewFlightHistory />
     </a-collapse-item>
   </a-collapse>

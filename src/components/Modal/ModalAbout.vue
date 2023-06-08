@@ -40,15 +40,10 @@ import { globalAboutModalVisible } from '~/composables'
       <a-typography-text>
         Data from: <a
           class="link-text"
-          href="https://jihulab.com/data1355712/xuyun-data"
+          href="https://jihulab.com/data1355712"
           target="_blank"
           rel="noreferrer"
-        >B站徐云数据源</a> <a
-          class="link-text"
-          href="https://jihulab.com/data1355712/shisanyaoshitou-data"
-          target="_blank"
-          rel="noreferrer"
-        >B站十三要与拳头数据源</a>
+        >jihulab数据源</a>
       </a-typography-text>
     </ASpace>
   </a-modal>

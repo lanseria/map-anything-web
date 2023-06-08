@@ -78,7 +78,7 @@ export async function updateLineLayer() {
           'visibility': visibility ? 'visible' : 'none',
         },
         paint: {
-          'line-color': i === 3 ? item.color : 'white',
+          'line-color': i === 3 ? ['get', 'color'] : 'white',
           'line-width': i === 3 ? 6 : 3,
           'line-offset': x * 3,
         },

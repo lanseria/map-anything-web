@@ -2,6 +2,8 @@ import type { FeatureCollection, Position } from '@turf/turf'
 import { reloadMapDrawLayer } from './draw/mode'
 import type { MyFeature, MyGeometry } from './types'
 
+export const storeMapTypeValue = useStorage('storeMapTypeValue', 'travel_example')
+
 export const storeMapDataValue = useStorage('storeMapDataValue', '/xuyun-data')
 export const globalMapDataValueUrl = computed(() => {
   return `${storeMapDataValue.value}/json/allSessions.json`

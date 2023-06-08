@@ -82,17 +82,24 @@ export const MAP_DRAW_LAYER_POINT = 'MAP_DRAW_LAYER_POINT'
 export const MAP_DATA_SOURCE = 'MAP_DATA_SOURCE'
 export const MAP_DATA_LAYER_POINT = 'MAP_DATA_LAYER_POINT'
 
+export const MAP_DATA_TYPE = [
+  {
+    label: '户外旅行UP主',
+    value: 'travel_example',
+  },
+]
+
 export const MAP_DATA_LIST = [
   {
+    type: 'travel_example',
     label: '徐云流浪中国',
     value: '/xuyun-data',
     issue: 'incoming+data1355712-xuyun-data-114561-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
-    color: '#0074cc',
   },
   {
+    type: 'travel_example',
     label: '十三要和拳头',
     value: '/shisanyaoshitou-data',
     issue: 'incoming+data1355712-shisanyaoshitou-data-116130-d4uz7cegv0krtvsns2ipla067-issue@mg.jihulab.com',
-    color: '#ffdcb6',
   },
 ]

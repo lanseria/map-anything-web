@@ -37,6 +37,7 @@ declare global {
   const MAP_DATA_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']
   const MAP_DATA_LIST: typeof import('./src/composables/constant')['MAP_DATA_LIST']
   const MAP_DATA_SOURCE: typeof import('./src/composables/constant')['MAP_DATA_SOURCE']
+  const MAP_DATA_TYPE: typeof import('./src/composables/constant')['MAP_DATA_TYPE']
   const MAP_DRAW_LAYER_POINT: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']
   const MAP_DRAW_LAYER_POLYGON_FILL: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']
   const MAP_DRAW_LAYER_POLYGON_OUTLINE: typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']
@@ -186,6 +187,7 @@ declare global {
   const storeMapDrawLayerCheckedKeys: typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']
   const storeMapImportLayerCheckedKeys: typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']
   const storeMapStyle: typeof import('./src/composables/store')['storeMapStyle']
+  const storeMapTypeValue: typeof import('./src/composables/store')['storeMapTypeValue']
   const syncRef: typeof import('@vueuse/core')['syncRef']
   const syncRefs: typeof import('@vueuse/core')['syncRefs']
   const templateRef: typeof import('@vueuse/core')['templateRef']
@@ -428,6 +430,7 @@ declare module 'vue' {
     readonly MAP_DATA_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']>
     readonly MAP_DATA_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LIST']>
     readonly MAP_DATA_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_SOURCE']>
+    readonly MAP_DATA_TYPE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_TYPE']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
     readonly MAP_DRAW_LAYER_POLYGON_OUTLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']>
@@ -577,6 +580,7 @@ declare module 'vue' {
     readonly storeMapDrawLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']>
     readonly storeMapImportLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
+    readonly storeMapTypeValue: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeValue']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>
@@ -813,6 +817,7 @@ declare module '@vue/runtime-core' {
     readonly MAP_DATA_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LAYER_POINT']>
     readonly MAP_DATA_LIST: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_LIST']>
     readonly MAP_DATA_SOURCE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_SOURCE']>
+    readonly MAP_DATA_TYPE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DATA_TYPE']>
     readonly MAP_DRAW_LAYER_POINT: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POINT']>
     readonly MAP_DRAW_LAYER_POLYGON_FILL: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_FILL']>
     readonly MAP_DRAW_LAYER_POLYGON_OUTLINE: UnwrapRef<typeof import('./src/composables/constant')['MAP_DRAW_LAYER_POLYGON_OUTLINE']>
@@ -962,6 +967,7 @@ declare module '@vue/runtime-core' {
     readonly storeMapDrawLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapDrawLayerCheckedKeys']>
     readonly storeMapImportLayerCheckedKeys: UnwrapRef<typeof import('./src/composables/store')['storeMapImportLayerCheckedKeys']>
     readonly storeMapStyle: UnwrapRef<typeof import('./src/composables/store')['storeMapStyle']>
+    readonly storeMapTypeValue: UnwrapRef<typeof import('./src/composables/store')['storeMapTypeValue']>
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>
     readonly templateRef: UnwrapRef<typeof import('@vueuse/core')['templateRef']>

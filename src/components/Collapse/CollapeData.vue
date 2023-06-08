@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+const searchText = ref('')
 const videoList = computed(() => {
   if (globalAllSessions.value) {
     const sessions = globalAllSessions.value.find((item: any) => item.id === globalSessionId.value)
     if (sessions)
-      return sessions.videoList
+      return sessions.videoList.filter((item: any) => item.title.includes(searchText.value))
     else
       return []
   }
@@ -27,6 +28,7 @@ function handlePlay(item: FormatVideo) {
 
 <template>
   <a-scrollbar style="height:400px;overflow: auto;">
+    <a-input v-model:model-value="searchText" class="w-full mb-10px" placeholder="请输入关键词进行搜索" allow-clear />
     <div class="grid grid-cols-2 gap-20px">
       <div
         class="cursor-pointer flex rounded-lg p-5px border border-[var(--color-neutral-2)]"
