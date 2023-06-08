@@ -39,7 +39,7 @@
     "@iconify-json/bi": "^1.1.17",
     "@iconify-json/carbon": "^1.1.17",
     "@iconify-json/gis": "^1.1.6",
-    "@iconify-json/material-symbols": "^1.1.45",
+    "@iconify-json/material-symbols": "^1.1.46",
     "@iconify-json/mdi": "^1.1.52",
     "@types/lodash-es": "^4.17.7",
     "@types/mapbox__mapbox-gl-draw": "^1.4.0",
