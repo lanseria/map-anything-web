@@ -76,6 +76,9 @@ devDependencies:
   '@iconify-json/gis':
     specifier: ^1.1.6
     version: 1.1.6
+  '@iconify-json/icon-park-outline':
+    specifier: ^1.1.11
+    version: 1.1.11
   '@iconify-json/material-symbols':
     specifier: ^1.1.46
     version: 1.1.46
@@ -601,6 +604,12 @@ packages:
 
   /@iconify-json/gis@1.1.6:
     resolution: {integrity: sha512-Xyh0lO5aGfL4lCM69VM74EsFGibyJwNpxK2UI1r68kJHtnpa7/eD8JIF3ouYa9/ftISP+8Av+E9zDq4SUIM3iA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/icon-park-outline@1.1.11:
+    resolution: {integrity: sha512-hfevr1UUsw3d0STNgD6b0wUex6N99tE7URxN9bBbi+HJBzGOcN4gQt6GTKuapliAWoyZbnAqUtRdhIvgZ7epUA==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

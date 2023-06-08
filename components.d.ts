@@ -25,6 +25,7 @@ declare module 'vue' {
     ModalDrawDataUpload: typeof import('./src/components/Modal/ModalDrawDataUpload.vue')['default']
     ModalJoinUs: typeof import('./src/components/Modal/ModalJoinUs.vue')['default']
     ModalMapDraw: typeof import('./src/components/Modal/ModalMapDraw.vue')['default']
+    ModalWeixinMiniApp: typeof import('./src/components/Modal/ModalWeixinMiniApp.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TabPanelIconBtn: typeof import('./src/components/TabPanel/TabPanelIconBtn.vue')['default']

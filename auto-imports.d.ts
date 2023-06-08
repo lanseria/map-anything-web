@@ -107,6 +107,7 @@ declare global {
   const globalSettingModalVisible: typeof import('./src/composables/global')['globalSettingModalVisible']
   const globalTempRouteMapCoordinates: typeof import('./src/composables/store')['globalTempRouteMapCoordinates']
   const globalVideoId: typeof import('./src/composables/store')['globalVideoId']
+  const globalWeixinMiniAppModalVisible: typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']
   const h: typeof import('vue')['h']
   const handleComputeDistance: typeof import('./src/composables/fetch')['handleComputeDistance']
   const handleComputeDistanceInEdit: typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']
@@ -500,6 +501,7 @@ declare module 'vue' {
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalTempRouteMapCoordinates: UnwrapRef<typeof import('./src/composables/store')['globalTempRouteMapCoordinates']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/store')['globalVideoId']>
+    readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
     readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>
@@ -887,6 +889,7 @@ declare module '@vue/runtime-core' {
     readonly globalSettingModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalSettingModalVisible']>
     readonly globalTempRouteMapCoordinates: UnwrapRef<typeof import('./src/composables/store')['globalTempRouteMapCoordinates']>
     readonly globalVideoId: UnwrapRef<typeof import('./src/composables/store')['globalVideoId']>
+    readonly globalWeixinMiniAppModalVisible: UnwrapRef<typeof import('./src/composables/global')['globalWeixinMiniAppModalVisible']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleComputeDistance: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistance']>
     readonly handleComputeDistanceInEdit: UnwrapRef<typeof import('./src/composables/fetch')['handleComputeDistanceInEdit']>

@@ -44,4 +44,5 @@ function onMoving() {
   <ModalDataMultipleMarker />
   <ModalAbout />
   <ModalJoinUs />
+  <ModalWeixinMiniApp />
 </template>

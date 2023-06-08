@@ -13,6 +13,9 @@ function handleAbout() {
 function handleRefresh() {
   location.reload()
 }
+function handleWeixinMiniApp() {
+  globalWeixinMiniAppModalVisible.value = true
+}
 function handleJoinUs() {
   globalJoinUsModalVisible.value = true
 }
@@ -132,6 +135,13 @@ watchEffect(() => {
             <div class="text-size-40px i-carbon-mail-reply" />
           </template>
           发送邮件
+        </TabPanelIconBtn>
+
+        <TabPanelIconBtn class="mr-5" @click="handleWeixinMiniApp">
+          <template #icon>
+            <div class="text-size-40px i-icon-park-outline-weixin-mini-app" />
+          </template>
+          微信小程序
         </TabPanelIconBtn>
 
         <TabPanelIconBtn class="mr-5" @click="handleJoinUs">
