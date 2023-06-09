@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@arco-design/web-vue':
-    specifier: 2.47.0
-    version: 2.47.0(vue@3.3.4)
+    specifier: 2.47.1
+    version: 2.47.1(vue@3.3.4)
   '@mapbox/mapbox-gl-draw':
     specifier: ^1.4.1
     version: 1.4.1
@@ -80,8 +80,8 @@ devDependencies:
     specifier: ^1.1.11
     version: 1.1.11
   '@iconify-json/material-symbols':
-    specifier: ^1.1.46
-    version: 1.1.46
+    specifier: ^1.1.47
+    version: 1.1.47
   '@iconify-json/mdi':
     specifier: ^1.1.52
     version: 1.1.52
@@ -272,8 +272,8 @@ packages:
       color: 3.2.1
     dev: false
 
-  /@arco-design/web-vue@2.47.0(vue@3.3.4):
-    resolution: {integrity: sha512-gyazl9pi0irrKYojCfOpW/U26QKxZVkQLgLRhSj9VWi/dkDk+KVUOeQh1HjaneKtZhVg5KJ24jgcqGvsZl2cpQ==}
+  /@arco-design/web-vue@2.47.1(vue@3.3.4):
+    resolution: {integrity: sha512-oe3gh5CKWqR1/chWfrWIO9iCGgDnzUw8GgfFPevn7CdMKeZQqExkrw4xWL96XmuGBfyZ06jODj3kezipWZ6NFw==}
     peerDependencies:
       vue: ^3.1.0
     dependencies:
@@ -614,8 +614,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/material-symbols@1.1.46:
-    resolution: {integrity: sha512-pnScG6pH66WtkSWYXDn8hcn/TLuXMXc9KIKDFEKa0p9wm3bPBJnA2XAzlwBn+f0iSDk4fLyV2MwiFu/vs9ZEcA==}
+  /@iconify-json/material-symbols@1.1.47:
+    resolution: {integrity: sha512-+y0r2zJRe1OBReVlP8e88otQHiyS8g1xQ0s0fR2m1QYF3ObQdlvtItWOjTNOmCNm0mWvE4V7brn4xIAvR5rY4g==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
