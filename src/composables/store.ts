@@ -31,7 +31,7 @@ watch(() => globalMapDataValueUrl.value, async () => {
     globalSessionId.value = globalAllSessions.value[0].id
 })
 export const globalVideoId = useStorage('globalVideoId', -1)
-watch(() => globalMapDataValueUrl.value, () => {
+watch([() => globalMapDataValueUrl.value, () => globalSessionId.value], () => {
   globalVideoId.value = -1
 })
 watchDebounced([() => globalGeojson.value,
