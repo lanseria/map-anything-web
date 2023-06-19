@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
-import matomo from 'vue-matomo'
 import { createRouter, createWebHistory } from 'vue-router'
 import routes from 'virtual:generated-pages'
 import ArcoVue from '@arco-design/web-vue'
 import ArcoVueIcon from '@arco-design/web-vue/es/icon'
+import baiduAnalytics from 'vue-baidu-analytics'
 import App from './App.vue'
 import './worker'
 
@@ -19,12 +19,15 @@ const router = createRouter({
   routes,
 })
 if (import.meta.env.PROD) {
-  // eslint-disable-next-line no-console
-  app.use(matomo, {
-    host: 'https://matomo.vip.cpolar.top',
-    siteId: 3,
-    router,
-  })
+  app
+  // 启动插件
+    .use(baiduAnalytics, {
+      router,
+      siteIdList: [
+        '48f69cc7e08b3b8a1bc58d8103ecfcc2',
+      ],
+      isDebug: false,
+    })
 }
 app.use(ArcoVue, {})
 app.use(ArcoVueIcon)

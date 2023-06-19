@@ -30,6 +30,7 @@
     "numeral": "^2.0.6",
     "query-string": "^8.1.0",
     "vue": "^3.3.4",
+    "vue-baidu-analytics": "^2.2.0",
     "vue-matomo": "^4.2.0",
     "vue-router": "^4.2.2"
   },
@@ -43,9 +44,9 @@
     "@iconify-json/material-symbols": "^1.1.48",
     "@iconify-json/mdi": "^1.1.52",
     "@types/lodash-es": "^4.17.7",
+    "@types/mapbox-gl": "^2.7.11",
     "@types/mapbox__mapbox-gl-draw": "^1.4.0",
     "@types/mapbox__mapbox-gl-geocoder": "^4.7.3",
-    "@types/mapbox-gl": "^2.7.11",
     "@types/node": "^20.3.1",
     "@types/numeral": "^2.0.2",
     "@unocss/reset": "^0.53.1",
