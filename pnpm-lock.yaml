@@ -62,8 +62,8 @@ devDependencies:
     specifier: ^0.39.7
     version: 0.39.7(eslint@8.45.0)(typescript@5.1.6)
   '@iconify-json/ant-design':
-    specifier: ^1.1.5
-    version: 1.1.5
+    specifier: ^1.1.6
+    version: 1.1.6
   '@iconify-json/bi':
     specifier: ^1.1.17
     version: 1.1.17
@@ -77,8 +77,8 @@ devDependencies:
     specifier: ^1.1.11
     version: 1.1.11
   '@iconify-json/material-symbols':
-    specifier: ^1.1.50
-    version: 1.1.50
+    specifier: ^1.1.51
+    version: 1.1.51
   '@iconify-json/mdi':
     specifier: ^1.1.53
     version: 1.1.53
@@ -586,8 +586,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify-json/ant-design@1.1.5:
-    resolution: {integrity: sha512-lNEC95u9QdmS3GfMLnbAjLZCfQ9i4xURyn7P4UVHa6ejjLjs5FVyi/J+itrmnBpwb36YZo4CT0GDIn2AgvkNng==}
+  /@iconify-json/ant-design@1.1.6:
+    resolution: {integrity: sha512-y2mW6DU/6y6cE0hDQBxNeF45hj9XoZADHOK9EG5jffh7mOiLcJHOcjQOT8qv1AP8kK9A9cvl2EzNr7n5Fahd/g==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
@@ -616,8 +616,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify-json/material-symbols@1.1.50:
-    resolution: {integrity: sha512-sz2Vuws9CIL9doMBqB/M3awCQ9gzmk5m2UdosKgHd3/qIC12q1hq/wFZ6QisP8fLwgl+jRLdKenfA5mytIa2Xw==}
+  /@iconify-json/material-symbols@1.1.51:
+    resolution: {integrity: sha512-RfCh41O0XgOgWtQVqdJ2iZlkgO1g6mQwZ5Bl8r7IyjGFHBjZnL3LOh4YdJM36cgaB81ecfIHJuXbKWVCJ7b6RA==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
